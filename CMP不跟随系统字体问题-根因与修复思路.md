@@ -33,31 +33,31 @@ flowchart TD
 
     subgraph STAGE2["阶段二：ArkTS 解析主题字体路径（问题）"]
         direction LR
-        B0["[Kotlin-Native] Compose 收到配置更新"] --> B1["[Kotlin-Native] DensityManager.kt 请求 fontId"]
-        B1 --> B2["[NAPI/Messenger] 跨语言请求"]
-        B2 --> B3["[ArkTS] DensityManager.ets 读取 context.config.fontId"]
-        B3 --> B4["[ArkTS] requestSystemThemeFontPath(fontId)<br/>查询 STYLISH / ArkGraphics2D / 文件系统"]:::problem
-        B4 --> B5["[ArkTS] 写入 cachedPaths"]
-        B4 -.-> NOTE2["说明：读取 fontId、查询 STYLISH、访问主题目录均由 ArkTS 执行；NAPI 只负责调用和值转换"]
+        B0["[Core/ui] Compose 收到配置更新"] --> B1["[Core/ui] DensityManager.kt 请求 fontId"]
+        B1 --> B2["[Core/NAPI] Messenger 跨语言请求"]
+        B2 --> B3["[Core/ui-arkui/ArkTS] DensityManager.ets 读取 context.config.fontId"]
+        B3 --> B4["[Core/ui-arkui/ArkTS] requestSystemThemeFontPath(fontId)<br/>查询 STYLISH / ArkGraphics2D / 文件系统"]:::problem
+        B4 --> B5["[Core/ui-arkui/ArkTS] 写入 cachedPaths"]
+        B4 -.-> NOTE2["说明：读取 fontId、查询 STYLISH、访问主题目录均由 Core 的 ArkTS 代码执行；NAPI 只负责跨语言调用"]
     end
 
     subgraph STAGE3["阶段三：创建 Paragraph 并取字体路径（问题）"]
         direction LR
-        C1["[Kotlin-Native] 主线程或 Lazy Worker 创建 Paragraph"] --> C2{"[NAPI 边界] 当前是 owner thread？"}
-        C2 -->|"主线程"| C3["[Kotlin-Native → NAPI] 调用 __font_getSystemThemeFontPaths"]
-        C2 -->|"后台 Worker"| C4["[NAPI 边界] 无法访问 ArkTS，返回空路径"]:::problem
-        C3 --> C5["[ArkTS] 返回 cachedPaths 数组"]
-        C5 --> C6["[NAPI] 转换为 Kotlin List<String>"]
-        C4 -.-> NOTE3["说明：cachedPaths 是 ArkTS 变量，Kotlin 不能直接读取；C++/NAPI 只负责函数调用和 napi_value 封送"]
+        C1["[Core/ui-text] 主线程或 Lazy Worker 创建 Paragraph"] --> C2{"[Core/NAPI] 当前是 owner thread？"}
+        C2 -->|"主线程"| C3["[Core/ui → NAPI] 调用 __font_getSystemThemeFontPaths"]
+        C2 -->|"后台 Worker"| C4["[Core/NAPI] 无法访问 ArkTS，返回空路径"]:::problem
+        C3 --> C5["[Core/ui-arkui/ArkTS] 返回 cachedPaths 数组"]
+        C5 --> C6["[Core/NAPI] 转换为 Kotlin List<String>"]
+        C4 -.-> NOTE3["说明：cachedPaths 是 ArkTS 变量，Kotlin 不能直接读取；Core 的 NAPI/C++ 桥只负责函数调用和 napi_value 封送"]
     end
 
     subgraph STAGE4["阶段四：字体解析与缓存（问题）"]
         direction LR
-        D1["[Kotlin-Native] 判断 Default / SansSerif"] --> D2["[Kotlin/Skiko] 展开为 HarmonyOS Sans / Sans-serif"]:::problem
-        D2 --> D3["[C++/Skia] FontCollection 按固定 family 查找 Typeface"]:::problem
-        D3 --> D4["[Kotlin-Native] 写入 SkTextStyle / Paragraph 缓存"]
-        D4 --> D5["[Kotlin-Native] 字体切换后旧缓存继续命中"]:::problem
-        D4 -.-> NOTE4["说明：Compose 负责字体策略和缓存；C++/Skia 负责实际 Typeface、字形和绘制"]
+        D1["[Core/ui-text] 判断 Default / SansSerif"] --> D2["[Core/ui-text] 展开为 HarmonyOS Sans / Sans-serif"]:::problem
+        D2 --> D3["[Skiko → native Skia] FontCollection 按固定 family 查找 Typeface"]:::problem
+        D3 --> D4["[Core/ui-text + foundation] 写入 SkTextStyle / Paragraph 缓存"]
+        D4 --> D5["[Core/ui + foundation] 字体切换后旧缓存继续命中"]:::problem
+        D4 -.-> NOTE4["说明：Core 负责字体策略和缓存；Skiko 提供 Skia Kotlin API；native Skia 负责 Typeface、字形和绘制"]
     end
 
     A2 --> B0
@@ -75,16 +75,24 @@ flowchart TD
     classDef problem fill:#ffe5e5,stroke:#c62828,stroke-width:3px,color:#8b0000;
 ```
 
-先明确各层职责：
+各层和执行主体如下：
 
-| 层 | 负责什么 | 不负责什么 |
-| --- | --- | --- |
-| ArkUI / ArkTS | 读取 `Configuration.fontId`、读取主题目录、调用 ArkGraphics2D、维护 `cachedPaths` | 不负责 Compose 的缓存键和 Skia FontCollection |
-| NAPI / Messenger | 在 ArkTS 与 Native 之间调用函数并封送 `napi_value` | 不解析字体文件，也不选择字体 |
-| Kotlin/Native Compose | 创建 Paragraph、决定 Compose `fontFamily`、维护文本缓存、检测配置变化 | 不直接读取 ArkTS 模块变量 |
-| C++/Skia | 实际加载 Typeface、字形排版和绘制 | 不知道 ArkTS 的 `cachedPaths`，必须由 Kotlin 传入 |
+| 所属层/仓库 | 在本问题中的职责 | 不负责什么 | 关键位置 |
+| --- | --- | --- | --- |
+| ArkUI / Core `ui-arkui` 的 ArkTS | 读取 `Configuration.fontId`、读取主题目录和 `manifest.json`、调用 ArkGraphics2D、维护 `cachedPaths` | 不负责 Compose 缓存键和 Skia FontCollection | `compose-multiplatform-core/compose/ui/ui-arkui/.../ets` |
+| Core 的 NAPI/Messenger 桥 | 在 ArkTS 与 Kotlin/Native 之间调用函数并封送 `napi_value` | 不解析字体文件，也不选择字体 | `compose/ui/ui/.../napi`、`compose/ui/ui-arkui/.../cpp` |
+| Compose Core（Kotlin/Native） | 创建 Paragraph、决定 Compose `fontFamily`、维护文本缓存、检测字体身份变化、选择渲染后端 | 不直接读取 ArkTS 模块变量 | `compose/ui/ui`、`ui-text`、`foundation/foundation` |
+| Skiko | 提供 Kotlin/Native 的 Skia API 和原生桥接，例如 `FontMgr`、`Typeface`、`FontCollection`、`Canvas`、`Paragraph`、`DirectContext` 和 OHOS KLIB | 不决定 Compose 字体语义或后端选择 | `third_party/skiko/skiko/skiko` |
+| Native Skia | 执行字体文件解析、字形 shaping、断行、文本布局和像素绘制 | 不知道 ArkTS `cachedPaths`，路径必须由 Core 经 Skiko 传入 | Skiko 链接的原生 Skia/静态库 |
+| Fusion 原生层 | 实现 OHRender RenderNode、OH_Drawing Canvas、文本、编解码和 ArkUI RenderNode 行为 | 不负责 Compose 后端选择 | `third_party/fusion-render/OHRender` |
 
-因此不能把整条链路简单分成“ArkTS 做前半段、C++ 做后半段”。实际是 ArkTS、NAPI、Kotlin/Native 和 C++/Skia 各自负责不同部分，跨层时通过 NAPI、Messenger 或后端接口传递数据。
+关键边界：
+
+- `compose/ui/ui-text/src/skikoMain/` 是 **Compose Core 的 Skiko 目标源集**，不是 Skiko 仓库代码。
+- `FontFamily.Default -> SansSerif -> aliases` 的策略由 Core 决定。
+- Skiko 提供 `FontMgr`、`FontCollection`、`Typeface` 等 Kotlin API，并把调用转给 native Skia。
+- Fusion 模式下，Core 选择后端；Skiko 提供 Fusion bridge；RenderNode/OHRender 内部行为归 `fusion-render`。
+- 因此不能把整条链路简单分成“ArkTS 做前半段、C++ 做后半段”。跨层时通过 NAPI、Messenger、Skiko API 或后端接口传递数据。
 
 图中需要重点理解的事实：
 
@@ -139,14 +147,14 @@ Configuration.fontId
 flowchart TD
     subgraph ARKTS["ArkTS 层：主题字体解析"]
         direction TD
-        A["[ArkTS] DensityManager.ets<br/>读取 context.config.fontId"] --> B{"[ArkTS] fontId 是默认字体？"}
-        B -->|"是"| C["[ArkTS] 查询 GENERIC 字体"]
-        B -->|"否"| D["[ArkTS] 查询 STYLISH 字体"]:::problem
-        D --> E["[ArkTS] 取第一个有 descriptor 的字体"]:::problem
-        E --> F["[ArkTS] 得到候选字体路径"]
+        A["[Core/ui-arkui/ArkTS] DensityManager.ets<br/>读取 context.config.fontId"] --> B{"[Core/ui-arkui/ArkTS] fontId 是默认字体？"}
+        B -->|"是"| C["[Core/ui-arkui/ArkTS] 查询 GENERIC 字体"]
+        B -->|"否"| D["[Core/ui-arkui/ArkTS] 查询 STYLISH 字体"]:::problem
+        D --> E["[Core/ui-arkui/ArkTS] 取第一个有 descriptor 的字体"]:::problem
+        E --> F["[Core/ui-arkui/ArkTS] 得到候选字体路径"]
         C --> F
     end
-    F --> G["[NAPI] 将路径结果转换为 Native 可读取的数据"]
+    F --> G["[Core/NAPI] 将路径结果转换为 Native 可读取的数据"]
     G -.-> NOTE["说明：此阶段的主体工作全部在 ArkTS；NAPI 只负责跨语言传值"]
 
     style ARKTS fill:#fafafa,stroke:#78909c,stroke-width:1px,stroke-dasharray:6 4
@@ -166,13 +174,15 @@ flowchart TD
 旧代码路径：
 
 ```text
-DensityManager.getFontId
-  -> Configuration.fontId
-  -> requestSystemThemeFontPath(fontId)
-  -> resolveSystemThemeFontPath(fontId)
-  -> SystemFontType.STYLISH
-  -> getFontDescriptorByFullName
-  -> 取第一个可读字体路径
+[Core/ui] DensityManager.kt
+  -> [Core/NAPI] Messenger 请求 compose.ui:Density.getFontId
+  -> [Core/ui-arkui/ArkTS] DensityManager.ets getFontId
+  -> [Core/ui-arkui/ArkTS] 读取 context.config.fontId
+  -> [Core/ui-arkui/ArkTS] requestSystemThemeFontPath(fontId)
+  -> [Core/ui-arkui/ArkTS] resolveSystemThemeFontPath(fontId)
+  -> [Core/ui-arkui/ArkTS] 查询 SystemFontType.STYLISH
+  -> [Core/ui-arkui/ArkTS] getFontDescriptorByFullName
+  -> [Core/ui-arkui/ArkTS] 取第一个可读字体路径
 ```
 
 相关文件：
@@ -285,12 +295,12 @@ Lazy 列表还会提前准备即将显示的 item：
 
 ```mermaid
 flowchart TD
-    A["[Kotlin-Native] LazyColumn 预取即将显示的 item"] --> B["[Kotlin-Native 主线程] 预组合、预测量"]
-    B --> C["[Kotlin-Native] 发现简单 Text"]
-    C --> D["[Kotlin-Native] 交给后台 Worker 做文本排版"]
-    D --> E["[Kotlin-Native Worker] 创建 Paragraph"]
-    E --> F["[Kotlin-Native] 结果进入文本缓存"]
-    F --> G["[Kotlin-Native 主线程] item 显示时复用"]
+    A["[Core/foundation] LazyColumn 预取即将显示的 item"] --> B["[Core/foundation 主线程] 预组合、预测量"]
+    B --> C["[Core/foundation] 发现简单 Text"]
+    C --> D["[Core/foundation] 交给后台 Worker 做文本排版"]
+    D --> E["[Core/foundation Worker] 创建 Paragraph"]
+    E --> F["[Core/foundation] 结果进入文本缓存"]
+    F --> G["[Core/foundation 主线程] item 显示时复用"]
 ```
 
 后台 Worker 不修改 Compose LayoutNode 树，也不决定页面元素位置；它只提前完成较重的文本排版计算。
@@ -301,15 +311,15 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    A["[Kotlin-Native] 不同 Text 创建自己的 Paragraph"] --> B{"[Kotlin-Native] 在哪条执行路径创建？"}
-    B -->|"主线程测量"| C["[Kotlin-Native] 调用 getSystemThemeFontPath"]
-    C --> D["[NAPI] 当前是 owner thread"]
-    D --> E["[ArkTS → NAPI] 返回主题字体路径"]
-    B -->|"Lazy 预取 Worker"| F["[Kotlin-Native Worker] 调用同一接口"]:::problem
-    F --> G["[NAPI] 不是 owner thread"]:::problem
-    G --> H["[NAPI] 返回空路径"]:::problem
-    E --> I["[Kotlin-Native] Paragraph 使用主题字体"]
-    H --> J["[Kotlin-Native] Paragraph 回退 HarmonyOS Sans"]
+    A["[Core/ui-text] 不同 Text 创建自己的 Paragraph"] --> B{"[Core/ui-text] 在哪条执行路径创建？"}
+    B -->|"主线程测量"| C["[Core/ui] 调用 getSystemThemeFontPath"]
+    C --> D["[Core/NAPI] 当前是 owner thread"]
+    D --> E["[Core/ui-arkui/ArkTS → Core/NAPI] 返回主题字体路径"]
+    B -->|"Lazy 预取 Worker"| F["[Core/foundation Worker] 调用同一接口"]:::problem
+    F --> G["[Core/NAPI] 不是 owner thread"]:::problem
+    G --> H["[Core/NAPI] 返回空路径"]:::problem
+    E --> I["[Core/ui-text] Paragraph 使用主题字体"]
+    H --> J["[Core/ui-text] Paragraph 回退 HarmonyOS Sans"]
     I --> K["页面结果"]
     J --> K
 
@@ -364,11 +374,11 @@ compose/ui/ui/src/ohosArm64Main/kotlin/androidx/compose/ui/text/platform/OhosNap
 
 ```mermaid
 flowchart TD
-    A["[Kotlin-Native] Text.fontFamily = null"] --> B["[Kotlin-Native] FontFamily.Default"]
-    B --> C["[Kotlin-Native] FontFamily.SansSerif"]
-    C --> D["[Kotlin/Skiko] HarmonyOS Sans / Sans-serif"]:::problem
-    D --> E["[C++/Skia] 按固定 family 查找 Typeface"]:::problem
-    E --> F["[C++/Skia] 使用 HarmonyOS Sans"]
+    A["[Core/ui-text] Text.fontFamily = null"] --> B["[Core/ui-text] FontFamily.Default"]
+    B --> C["[Core/ui-text] FontFamily.SansSerif"]
+    C --> D["[Core/ui-text/skikoMain] HarmonyOS Sans / Sans-serif"]:::problem
+    D --> E["[Skiko API → native Skia] 按固定 family 查找 Typeface"]:::problem
+    E --> F["[native Skia] 使用 HarmonyOS Sans"]
 
     classDef problem fill:#ffe5e5,stroke:#c62828,stroke-width:3px,color:#8b0000;
 ```
@@ -399,13 +409,13 @@ SkiaRender 和 Fusion Renderer 对字体的处理方式不同：
 
 ```mermaid
 flowchart TD
-    A["[Kotlin-Native] Paragraph 需要字体"] --> B{"[Kotlin-Native] 当前渲染后端"}
-    B -->|"SkiaRender"| C["[C++/Skia] Skia 自己的 FontCollection"]
-    C --> D["[C++/Skia] 按 HarmonyOS Sans / Sans-serif 查找"]:::problem
-    D --> E["[C++/Skia] 集合中没有 ArkUI 当前主题字体文件"]:::problem
-    E --> F["[C++/Skia] 使用 HarmonyOS Sans"]
-    B -->|"Fusion"| G["[OHOS 平台] 全局 FontCollection"]
-    G --> H["[OHOS 平台] 解析当前主题字体"]
+    A["[Core/ui-text] Paragraph 需要字体"] --> B{"[Core/ui] 当前渲染后端"}
+    B -->|"SkiaRender"| C["[Skiko → native Skia] Skia 自己的 FontCollection"]
+    C --> D["[native Skia] 按 HarmonyOS Sans / Sans-serif 查找"]:::problem
+    D --> E["[native Skia] 集合中没有 ArkUI 当前主题字体文件"]:::problem
+    E --> F["[native Skia] 使用 HarmonyOS Sans"]
+    B -->|"Fusion"| G["[Skiko/Fusion bridge → fusion-render/OHRender] 全局 FontCollection"]
+    G --> H["[fusion-render/OHRender 或 OHOS 平台] 解析当前主题字体"]
 
     classDef problem fill:#ffe5e5,stroke:#c62828,stroke-width:3px,color:#8b0000;
 ```
@@ -421,16 +431,35 @@ flowchart TD
 
 ```text
 SkiaRender：
-Compose
-  -> Skiko / Skia
+[Core/ui] 选择 SkiaRender 后端
+  -> [Core/ui-text] 生成 Compose 文本布局请求
+  -> [Skiko API] Canvas / FontMgr / FontCollection / Paragraph
+  -> [native Skia] 字体解析、shaping、断行和绘制
   -> XComponent EGL Surface
   -> ArkUI 将整个 Surface 作为一个图层显示
 
 Fusion Renderer：
-Compose
-  -> OHRender / RenderNode
+[Core/ui] 选择 Fusion Renderer 后端
+  -> [Core/ui-text] 生成 Compose 文本布局请求
+  -> [Skiko/Fusion bridge] RenderNode/Canvas 适配
+  -> [fusion-render/OHRender] RenderNode、OH_Drawing Canvas 和文本原生实现
   -> 加入 ArkUI 渲染树
   -> ArkUI RenderService 统一合成
+```
+
+对应仓库位置：
+
+```text
+Core:
+compose-multiplatform-core/compose/ui/ui
+compose-multiplatform-core/compose/ui/ui-text
+compose-multiplatform-core/compose/foundation/foundation
+
+Skiko:
+third_party/skiko/skiko/skiko
+
+Fusion 原生层：
+third_party/fusion-render/OHRender
 ```
 
 在本项目中：
@@ -447,13 +476,13 @@ Fusion 更适合 Compose 与 ArkUI 原生组件深度混排、需要统一 Rende
 
 ```mermaid
 flowchart TD
-    A["[System/ArkUI] 用户切换系统字体"] --> B["[Kotlin-Native] Compose 收到配置更新"]
-    B --> C["[Kotlin-Native] 旧逻辑没有比较实际字体身份"]:::problem
-    C --> D["[Kotlin-Native] 请求普通帧刷新"]
-    D --> E["[Kotlin-Native] Text 重新测量"]
-    E --> F["[Kotlin-Native] TextStyle / family / resolver 缓存键不变"]:::problem
-    F --> G["[Kotlin-Native + Skia] 命中旧 Typeface / SkTextStyle / Paragraph"]:::problem
-    G --> H["[C++/Skia] 继续绘制旧字体"]
+    A["[System/ArkUI] 用户切换系统字体"] --> B["[Core/ui] Compose 收到配置更新"]
+    B --> C["[Core/ui] 旧逻辑没有比较实际字体身份"]:::problem
+    C --> D["[Core/ui] 请求普通帧刷新"]
+    D --> E["[Core/ui + ui-text] Text 重新测量"]
+    E --> F["[Core/ui-text] TextStyle / family / resolver 缓存键不变"]:::problem
+    F --> G["[Core/ui-text + foundation + Skiko] 命中旧 Typeface / SkTextStyle / Paragraph"]:::problem
+    G --> H["[native Skia] 继续绘制旧字体"]
 
     classDef problem fill:#ffe5e5,stroke:#c62828,stroke-width:3px,color:#8b0000;
 ```
@@ -498,13 +527,13 @@ compose/foundation/foundation/src/commonMain/kotlin/androidx/compose/foundation/
 
 ```mermaid
 flowchart TD
-    A["[Kotlin-Native 主线程] Paragraph"] --> B["[NAPI] 查询成功"]
-    B --> C["[Kotlin-Native + Skia] 使用主题字体"]
-    D["[Kotlin-Native Lazy Worker] Paragraph"] --> E["[NAPI] 查询返回空"]
-    E --> F["[Kotlin-Native + Skia] 使用 HarmonyOS Sans"]
-    C --> G["[Kotlin-Native] 分别进入文本缓存"]
+    A["[Core/ui-text 主线程] Paragraph"] --> B["[Core/NAPI] 查询成功"]
+    B --> C["[Core/ui-text + native Skia] 使用主题字体"]
+    D["[Core/foundation Lazy Worker] Paragraph"] --> E["[Core/NAPI] 查询返回空"]
+    E --> F["[Core/ui-text + native Skia] 使用 HarmonyOS Sans"]
+    C --> G["[Core/ui-text + foundation] 分别进入文本缓存"]
     F --> G
-    G --> H["[C++/Skia] 同一页面绘制出两种字体"]
+    G --> H["[native Skia] 同一页面绘制出两种字体"]
 ```
 
 这就是截图中“部分文字切换、部分文字没切换”的完整解释。
@@ -651,32 +680,32 @@ exitCode=0
 flowchart TD
     subgraph FIX1["阶段一：ArkTS 解析当前主题字体"]
         direction LR
-        A["[System/ArkUI] 冷启动或切换系统主题字体"] --> B["[Kotlin-Native] Compose 请求 fontId"]
-        B --> C["[NAPI/Messenger] 跨语言调用 ArkTS"]
-        C --> D["[ArkTS] DensityManager.ets 读取 context.config.fontId"]
-        D --> E["[ArkTS] 读取当前主题目录和 manifest.json"]
-        E --> F["[ArkTS] 得到主字体和 fallback 路径"]
-        E -.-> FNOTE["说明：主题目录、manifest、字体 descriptor 均由 ArkTS 读取"]
+        A["[System/ArkUI] 冷启动或切换系统主题字体"] --> B["[Core/ui] Compose 请求 fontId"]
+        B --> C["[Core/NAPI] Messenger 跨语言调用 ArkTS"]
+        C --> D["[Core/ui-arkui/ArkTS] DensityManager.ets 读取 context.config.fontId"]
+        D --> E["[Core/ui-arkui/ArkTS] 读取当前主题目录和 manifest.json"]
+        E --> F["[Core/ui-arkui/ArkTS] 得到主字体和 fallback 路径"]
+        E -.-> FNOTE["说明：主题目录、manifest、字体 descriptor 均由 Core 的 ArkTS 代码读取"]
     end
 
     subgraph FIX2["阶段二：生成路径快照并创建 Paragraph"]
         direction LR
-        G["[Kotlin-Native 主线程] 读取 fontId + 路径身份"] --> H["[NAPI] 调用 __font_getSystemThemeFontPaths"]
-        H --> I["[ArkTS] 返回 cachedPaths 数组"]
-        I --> J["[NAPI] 转换为 Kotlin List<String>"]
-        J --> K["[Kotlin-Native] 写入线程安全路径快照"]
-        L["[Kotlin-Native] 主线程或 Lazy Worker 创建 Paragraph"] --> M["[Kotlin-Native] 两种线程读取同一快照"]
+        G["[Core/ui] 主线程读取 fontId + 路径身份"] --> H["[Core/NAPI] 调用 __font_getSystemThemeFontPaths"]
+        H --> I["[Core/ui-arkui/ArkTS] 返回 cachedPaths 数组"]
+        I --> J["[Core/NAPI] 转换为 Kotlin List<String>"]
+        J --> K["[Core/ui] 写入线程安全路径快照"]
+        L["[Core/ui-text + foundation] 主线程或 Lazy Worker 创建 Paragraph"] --> M["[Core/ui-text] 两种线程读取同一快照"]
         K --> L
         M -.-> MNOTE["说明：Worker 不再直接调用 NAPI，而是读取主线程已准备的快照"]
     end
 
     subgraph FIX3["阶段三：选择字体解析路径"]
         direction LR
-        N{"[Kotlin-Native] Default / SansSerif？"} -->|"否"| O["[Kotlin-Native] 使用原显式 family resolver"]
-        N -->|"是"| P{"[Kotlin-Native] 当前渲染后端"}
-        P -->|"Fusion"| Q["[OHOS 平台] 平台 FontCollection 解析主题字体"]
-        P -->|"SkiaRender"| R["[C++/Skia] FontMgr.makeFromFile 加载主题字体文件"]
-        O --> S["[C++/Skia] 生成 Typeface / Paragraph"]
+        N{"[Core/ui-text] Default / SansSerif？"} -->|"否"| O["[Core/ui-text] 使用原显式 family resolver"]
+        N -->|"是"| P{"[Core/ui] 当前渲染后端"}
+        P -->|"Fusion"| Q["[Core → Skiko/Fusion bridge → fusion-render/OHRender] 平台 FontCollection 解析主题字体"]
+        P -->|"SkiaRender"| R["[Core → Skiko API → native Skia] FontMgr.makeFromFile 加载主题字体文件"]
+        O --> S["[Skiko API → native Skia] 生成 SkTextStyle 和 native Paragraph"]
         Q --> S
         R --> S
         S -.-> SNOTE["说明：Compose 选择策略；实际字体加载、字形计算和绘制由对应后端完成"]
@@ -684,18 +713,18 @@ flowchart TD
 
     subgraph FIX4["阶段四：缓存校验和刷新"]
         direction LR
-        T["[Kotlin-Native] 写入文本样式和布局缓存"] --> U{"[Kotlin-Native] fontId 或路径身份变化？"}
-        U -->|"否"| V["[Kotlin-Native] 复用当前缓存"]
-        U -->|"是"| W["[Kotlin-Native] 清理布局、Typeface、字体加载缓存"]
-        W --> X["[Kotlin-Native] 重建 FontFamilyResolver"]
-        X --> Y["[Kotlin-Native] 请求同步刷新并重新测量"]
+        T["[Core/ui-text + foundation] 写入文本样式和布局缓存"] --> U{"[Core/ui] fontId 或路径身份变化？"}
+        U -->|"否"| V["[Core/ui-text + foundation] 复用当前缓存"]
+        U -->|"是"| W["[Core/ui + ui-text] 清理布局、Typeface、字体加载缓存"]
+        W --> X["[Core/ui-text] 重建 FontFamilyResolver"]
+        X --> Y["[Core/ui] 请求同步刷新并重新测量"]
         W -.-> WNOTE["说明：身份包含 fontId 和实际字体路径，避免同一 ID 下旧缓存继续命中"]
     end
 
     F --> G
     M --> N
     S --> T
-    V --> Z["[C++/Skia 或 OHOS 平台] 绘制页面"]
+    V --> Z["[native Skia 或 fusion-render/OHRender] 绘制页面"]
     Y --> Z
 
     style FIX1 fill:#fafafa,stroke:#78909c,stroke-width:1px,stroke-dasharray:6 4
