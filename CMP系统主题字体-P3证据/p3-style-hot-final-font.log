@@ -1,0 +1,11 @@
+10-30 04:10:23.863 64018 64018 I A00000/com.tencent.compose/Konan_main: [a92ab1a82faa664 29b13ca 3fe09c6][INFO] CMP_FONT, pageShow themeIdentity previous=22200001 current=h0011 generation=1 action=clearFontCaches
+10-30 04:10:23.892 64018 64018 I A00000/com.tencent.compose/render_mode: [a92ab1a82faa664 39c7b71 29b13ca]getRenderBackendId id=0 fnMode=1
+10-30 04:10:23.906 64018 64018 I A08001/com.tencent.compose/SystemThemeFontResolver: [a92ab1a82faa664 2821ba4 b9454a]fontId=h0011 default=false stylish=1 candidates=1
+10-30 04:10:23.906 64018 64018 I A08001/com.tencent.compose/SystemThemeFontResolver: [a92ab1a82faa664 26c273f 1c0e68b]descriptor fullName=ShuS-SC family=ShuS-SC path=/system/fonts/ShuS-SC.ttf
+10-30 04:10:23.906 64018 64018 I A08001/com.tencent.compose/SystemThemeFontResolver: [a92ab1a82faa664 26c273f 1c0e68b]resolved fontId=h0011 path=/system/fonts/ShuS-SC.ttf
+10-30 04:10:23.906 64018 64018 I A08001/com.tencent.compose/DensityManager: [a92ab1a82faa664 26c273f 1c0e68b]FONT system theme path resolved: /system/fonts/ShuS-SC.ttf
+10-30 04:10:23.906 64018 64018 I A00000/com.tencent.compose/Konan_main: [a92ab1a82faa664 26c273f 1c0e68b][INFO] CMP_FONT, themeIdentity previous=h0011 current=h0011|/system/fonts/ShuS-SC.ttf generation=2 action=clearFontCaches
+10-30 04:10:23.922 64018 64018 I A00000/com.tencent.compose/Konan_main: [a92ab1a82faa664 26c273f 1c0e68b][INFO] CMP_FONT, fontId changed -> generation=2 -> resolver rebuilt -> relayout requested
+10-30 04:10:23.954 64018 64018 I A00000/com.tencent.compose/Konan_main: [INFO] CMP_FONT, Skia paragraph style family=FontFamily.Default themePath=/system/fonts/ShuS-SC.ttf resolved=true
+10-30 04:10:23.958 64018 64018 I A00000/com.tencent.compose/Konan_main: [INFO] CMP_FONT, Skia paragraph style family=FontFamily.Default themePath=/system/fonts/ShuS-SC.ttf resolved=true
+10-30 04:10:23.958 64018 64018 I A00000/com.tencent.compose/Konan_main: [INFO] CMP_FONT, Skia paragraph style family=FontFamily.Default themePath=/system/fonts/ShuS-SC.ttf resolved=true

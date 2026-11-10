@@ -1,0 +1,2 @@
+10-30 01:20:47.302 18042 18042 I A00000/com.tencent.compose/render_mode: androidx_compose_ui_arkui_ArkUIViewController_getRendererTypeId id=0
+10-30 01:20:47.306 18042 18042 I A00000/com.tencent.compose/render_mode: getRenderBackendId id=0 fnMode=1

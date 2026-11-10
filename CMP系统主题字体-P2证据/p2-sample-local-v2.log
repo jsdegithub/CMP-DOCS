@@ -1,0 +1,1954 @@
+Type-safe project accessors is an incubating feature.
+
+> Configure project :composeApp
+ComposePlugin: rendererBackend=fusion-renderer, skikoVersion=0.9.22.2-0.5.0-28, supportedRenderBackends=[fusion-renderer, skia], source=parameter, uiCoordinate=org.jetbrains.compose.ui:ui-ohosarm64:1.9.2-0.5.0-28 (OHOS only)
+ComposePlugin: applied fusion-renderer linker options to ohosArm64
+ComposePlugin: applied fusion-renderer linker options to ohosX64
+ComposePlugin: wired Skiko sibling klib (skiko-ohosArm64Main-0.9.22.2-0.5.0-28.klib) into 1 cinterop(s) on ohosArm64 (rendererBackend=fusion-renderer, ui mode=both)
+ComposePlugin: wired Skiko sibling klib (skiko-ohosX64Main-0.9.22.2-0.5.0-28.klib) into 1 cinterop(s) on ohosX64 (rendererBackend=fusion-renderer, ui mode=both)
+
+> Task :composeApp:kmpPartiallyResolvedDependenciesChecker
+> Task :composeApp:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :composeApp:cinteropResourceOhosArm64
+> Task :composeApp:downloadKotlinNativeDistribution
+> Task :composeApp:convertXmlValueResourcesForCommonMain NO-SOURCE
+> Task :composeApp:copyNonXmlValueResourcesForCommonMain
+> Task :composeApp:prepareComposeResourcesTaskForCommonMain
+> Task :composeApp:generateResourceAccessorsForCommonMain
+> Task :composeApp:convertXmlValueResourcesForNativeMain NO-SOURCE
+> Task :composeApp:copyNonXmlValueResourcesForNativeMain NO-SOURCE
+> Task :composeApp:prepareComposeResourcesTaskForNativeMain NO-SOURCE
+> Task :composeApp:generateResourceAccessorsForNativeMain NO-SOURCE
+> Task :composeApp:convertXmlValueResourcesForOhosArm64Main NO-SOURCE
+> Task :composeApp:copyNonXmlValueResourcesForOhosArm64Main NO-SOURCE
+> Task :composeApp:prepareComposeResourcesTaskForOhosArm64Main NO-SOURCE
+> Task :composeApp:generateResourceAccessorsForOhosArm64Main NO-SOURCE
+> Task :composeApp:convertXmlValueResourcesForOhosMain NO-SOURCE
+> Task :composeApp:copyNonXmlValueResourcesForOhosMain NO-SOURCE
+> Task :composeApp:prepareComposeResourcesTaskForOhosMain NO-SOURCE
+> Task :composeApp:generateResourceAccessorsForOhosMain NO-SOURCE
+> Task :composeApp:generateActualResourceCollectorsForOhosArm64Main
+> Task :composeApp:generateComposeResClass
+> Task :composeApp:generateExpectResourceCollectorsForCommonMain
+
+> Task :composeApp:compileKotlinOhosArm64
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/MainPage.kt:135:40 'fun centerAlignedTopAppBarColors(containerColor: Color = ..., scrolledContainerColor: Color = ..., navigationIconContentColor: Color = ..., titleContentColor: Color = ..., actionIconContentColor: Color = ...): TopAppBarColors' is deprecated. Use topAppBarColors instead.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/accessibility/AccessibilityVoiceControlsLab.kt:287:13 'fun TabRow(selectedTabIndex: Int, modifier: Modifier = ..., containerColor: Color = ..., contentColor: Color = ..., indicator: ComposableFunction1<List<TabPosition>, Unit> = ..., divider: ComposableFunction0<Unit> = ..., tabs: ComposableFunction0<Unit>): Unit' is deprecated. Replaced with PrimaryTabRow and SecondaryTabRow.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/AntiAliasDemo.kt:61:5 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/AntiAliasDemo.kt:175:5 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/AntiAliasDemo.kt:192:5 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/CanvasBasicDrawingDemo.kt:53:9 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/CardEffectComboDemo.kt:62:17 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/CardEffectComboDemo.kt:87:17 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/ComplexAnimationDemo.kt:136:17 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/ImageDrawingDemo.kt:52:5 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/LayerZOrderAlphaDemo.kt:70:17 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/LayerZOrderAlphaDemo.kt:147:25 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/LayerZOrderAlphaDemo.kt:195:25 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/LayerZOrderAlphaDemo.kt:236:25 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/LayerZOrderAlphaDemo.kt:324:25 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/LayerZOrderAlphaDemo.kt:422:25 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/LayerZOrderAlphaDemo.kt:601:33 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/LayerZOrderAlphaDemo.kt:611:33 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/OffscreenRenderingDemo.kt:73:5 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/OffscreenRenderingDemo.kt:246:7 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/OffscreenRenderingDemo.kt:297:7 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/PathDrawingDemo.kt:53:9 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/PathDrawingDemo.kt:351:17 'fun quadraticBezierTo(x1: Float, y1: Float, x2: Float, y2: Float): Unit' is deprecated. Use quadraticTo() for consistency with cubicTo().
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/PathDrawingDemo.kt:389:13 'fun quadraticBezierTo(x1: Float, y1: Float, x2: Float, y2: Float): Unit' is deprecated. Use quadraticTo() for consistency with cubicTo().
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/PathDrawingDemo.kt:397:13 'fun quadraticBezierTo(x1: Float, y1: Float, x2: Float, y2: Float): Unit' is deprecated. Use quadraticTo() for consistency with cubicTo().
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/sectionItem/AccessibilityTestPage.kt:142:25 'fun LinearProgressIndicator(progress: Float, modifier: Modifier = ..., color: Color = ..., trackColor: Color = ..., strokeCap: StrokeCap = ...): Unit' is deprecated. Use the overload that takes `progress` as a lambda.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/sectionItem/ProgressIndicator.kt:90:13 'fun LinearProgressIndicator(progress: Float, modifier: Modifier = ..., color: Color = ..., trackColor: Color = ..., strokeCap: StrokeCap = ...): Unit' is deprecated. Use the overload that takes `progress` as a lambda.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/sectionItem/ProgressIndicator.kt:132:13 'fun CircularProgressIndicator(progress: Float, modifier: Modifier = ..., color: Color = ..., strokeWidth: Dp = ..., trackColor: Color = ..., strokeCap: StrokeCap = ...): Unit' is deprecated. Use the overload that takes `progress` as a lambda.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/sectionItem/Text.kt:241:9 'fun ClickableText(text: AnnotatedString, modifier: Modifier = ..., style: TextStyle = ..., softWrap: Boolean = ..., overflow: TextOverflow = ..., maxLines: Int = ..., onTextLayout: (TextLayoutResult) -> Unit = ..., onClick: (Int) -> Unit): Unit' is deprecated. Use Text or BasicText and pass an AnnotatedString that contains a LinkAnnotation. Check LinkAnnotation's documentation for more details and samples.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/memory/MemoryMonitor.kt:262:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. Consider using the '-Xexpect-actual-classes' flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/ohosArm64Main/kotlin/com/tencent/compose/sample/mainpage/accessibility/AccessibilityCmpArkTsRoleCompareDemo.kt:252:21 'fun TabRow(selectedTabIndex: Int, modifier: Modifier = ..., containerColor: Color = ..., contentColor: Color = ..., indicator: ComposableFunction1<List<TabPosition>, Unit> = ..., divider: ComposableFunction0<Unit> = ..., tabs: ComposableFunction0<Unit>): Unit' is deprecated. Replaced with PrimaryTabRow and SecondaryTabRow.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/ohosArm64Main/kotlin/com/tencent/compose/sample/mainpage/render/CanvasInteropDoubleLayerDemo.kt:43:17 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/ohosArm64Main/kotlin/com/tencent/compose/sample/mainpage/render/CanvasInteropDoubleLayerDemo.kt:112:25 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/ohosArm64Main/kotlin/com/tencent/compose/sample/mainpage/render/CanvasInteropSingleLayerDemo.kt:43:17 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/ohosArm64Main/kotlin/com/tencent/compose/sample/mainpage/render/CanvasInteropSingleLayerDemo.kt:106:25 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/ohosArm64Main/kotlin/com/tencent/compose/sample/mainpage/render/LayerInteropSingleDemo.kt:45:5 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/ohosArm64Main/kotlin/com/tencent/compose/sample/mainpage/render/LayerInteropSingleDemo.kt:107:9 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/ohosArm64Main/kotlin/com/tencent/compose/sample/mainpage/render/OffscreenCacheInteropDemo.kt:70:9 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/ohosArm64Main/kotlin/com/tencent/compose/sample/mainpage/render/OffscreenCacheInteropDemo.kt:148:17 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/ohosArm64Main/kotlin/com/tencent/compose/sample/mainpage/render/OffscreenCacheInteropDemo.kt:200:9 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/ohosArm64Main/kotlin/com/tencent/compose/sample/mainpage/render/WindowRotationDemo.kt:38:9 'when' is exhaustive so 'else' is redundant here.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/ohosArm64Main/kotlin/com/tencent/compose/sample/memory/PlatformMemory.ohos.kt:20:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. Consider using the '-Xexpect-actual-classes' flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+
+> Task :composeApp:linkReleaseSharedOhosArm64
+[CAdapterGenerator] No module filtering, including all 3 modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:941:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+  941 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:956:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+  956 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:981:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+  981 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:996:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+  996 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1012:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1012 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1028:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1028 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1045:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1045 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1060:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1060 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1074:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1074 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1088:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1088 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1102:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1102 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1116:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1116 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1130:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1130 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1144:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1144 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1158:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1158 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1172:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1172 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1187:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1187 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1203:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1203 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1218:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1218 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1232:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1232 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1247:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1247 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1263:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1263 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1379:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1379 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1394:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1394 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1409:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1409 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1426:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1426 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1440:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1440 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1467:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1467 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1482:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1482 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1496:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1496 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1523:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1523 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1551:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1551 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1565:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1565 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1579:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1579 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1595:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1595 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1610:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1610 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1624:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1624 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1639:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1639 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1668:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1668 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1682:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1682 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1709:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1709 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1736:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1736 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1763:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1763 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1790:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1790 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1818:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1818 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1832:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1832 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1859:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1859 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1886:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1886 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:1953:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1953 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2005:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2005 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2020:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2020 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2075:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2075 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2090:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2090 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2105:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2105 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2119:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2119 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2134:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2134 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2149:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2149 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2163:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2163 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2180:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2180 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2195:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2195 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2209:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2209 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2224:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2224 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2248:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2248 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2263:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2263 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2332:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2332 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2348:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2348 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2427:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2427 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2551:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2551 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2588:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2588 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2601:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2601 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2627:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2627 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2641:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2641 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2654:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2654 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2667:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2667 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2680:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2680 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2719:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2719 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2732:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2732 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2784:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2784 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2858:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2858 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2871:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2871 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2884:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2884 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2921:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2921 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2946:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2946 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2960:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2960 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2973:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2973 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2986:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2986 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:2999:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2999 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:3060:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 3060 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:3229:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 3229 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:3245:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 3245 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:3391:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 3391 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:3404:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 3404 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:3505:21: warning: mixture of designated and non-designated initializers in the same initializer list is a C99 extension [-Wc99-designator]
+ 3505 |                     .BLUR = {
+      |                     ^~~~~~~~~
+ 3506 |                       /* enum entry getter BLUR = */  _konan_function_45_impl,
+      |                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3507 |                     },
+      |                     ~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:3520:50: note: first non-designated initializer is here
+ 3520 |                     /* Type for EffectType = */  _konan_function_44_type, 
+      |                                                  ^~~~~~~~~~~~~~~~~~~~~~~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:3523:21: warning: mixture of designated and non-designated initializers in the same initializer list is a C99 extension [-Wc99-designator]
+ 3523 |                     .LINEAR = {
+      |                     ^~~~~~~~~~~
+ 3524 |                       /* enum entry getter LINEAR = */  _konan_function_51_impl,
+      |                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3525 |                     },
+      |                     ~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:3532:52: note: first non-designated initializer is here
+ 3532 |                     /* Type for GradientType = */  _konan_function_50_type, 
+      |                                                    ^~~~~~~~~~~~~~~~~~~~~~~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:3535:21: warning: mixture of designated and non-designated initializers in the same initializer list is a C99 extension [-Wc99-designator]
+ 3535 |                     .MULTIPLY = {
+      |                     ^~~~~~~~~~~~~
+ 3536 |                       /* enum entry getter MULTIPLY = */  _konan_function_55_impl,
+      |                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3537 |                     },
+      |                     ~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:3544:53: note: first non-designated initializer is here
+ 3544 |                     /* Type for BlendModeType = */  _konan_function_54_type, 
+      |                                                     ^~~~~~~~~~~~~~~~~~~~~~~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:3482:19: warning: mixture of designated and non-designated initializers in the same initializer list is a C99 extension [-Wc99-designator]
+ 3482 |                   .DiffResult = {
+      |                   ^~~~~~~~~~~~~~~
+ 3483 |                     /* Type for DiffResult = */  _konan_function_26_type, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3484 |                     /* <init> = */ _konan_function_27_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3485 |                     /* <get-diffMask> = */ _konan_function_28_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3486 |                     /* <get-diffPercentage> = */ _konan_function_29_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3487 |                     /* <get-diffPixels> = */ _konan_function_30_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3488 |                     /* <get-passed> = */ _konan_function_31_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3489 |                     /* <get-totalPixels> = */ _konan_function_32_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3490 |                     /* component1 = */ _konan_function_33_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3491 |                     /* component2 = */ _konan_function_34_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3492 |                     /* component3 = */ _konan_function_35_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3493 |                     /* component4 = */ _konan_function_36_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3494 |                     /* component5 = */ _konan_function_37_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3495 |                     /* copy = */ _konan_function_38_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3496 |                     /* equals = */ _konan_function_39_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3497 |                     /* hashCode = */ _konan_function_40_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:3546:50: note: first non-designated initializer is here
+ 3546 |                   /* createEmptyImageBitmap = */ _konan_function_23_impl, 
+      |                                                  ^~~~~~~~~~~~~~~~~~~~~~~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:3481:17: warning: mixture of designated and non-designated initializers in the same initializer list is a C99 extension [-Wc99-designator]
+ 3481 |                 .render = {
+      |                 ^~~~~~~~~~~
+ 3482 |                   .DiffResult = {
+      |                   ~~~~~~~~~~~~~~~
+ 3483 |                     /* Type for DiffResult = */  _konan_function_26_type, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3484 |                     /* <init> = */ _konan_function_27_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3485 |                     /* <get-diffMask> = */ _konan_function_28_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3486 |                     /* <get-diffPercentage> = */ _konan_function_29_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3487 |                     /* <get-diffPixels> = */ _konan_function_30_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3488 |                     /* <get-passed> = */ _konan_function_31_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3489 |                     /* <get-totalPixels> = */ _konan_function_32_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3490 |                     /* component1 = */ _konan_function_33_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3491 |                     /* component2 = */ _konan_function_34_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3492 |                     /* component3 = */ _konan_function_35_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3493 |                     /* component4 = */ _konan_function_36_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3494 |                     /* component5 = */ _konan_function_37_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3495 |                     /* copy = */ _konan_function_38_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3496 |                     /* equals = */ _konan_function_39_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:3596:56: note: first non-designated initializer is here
+ 3596 |                 /* <get-LocalComposeControllerId> = */ _konan_function_22_impl, 
+      |                                                        ^~~~~~~~~~~~~~~~~~~~~~~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:3600:19: warning: mixture of designated and non-designated initializers in the same initializer list is a C99 extension [-Wc99-designator]
+ 3600 |                   .MEMORY_LEVEL_MODERATE = {
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3601 |                     /* enum entry getter MEMORY_LEVEL_MODERATE = */  _konan_function_100_impl,
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3602 |                   },
+      |                   ~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:3614:49: note: first non-designated initializer is here
+ 3614 |                   /* Type for MemoryLevel = */  _konan_function_98_type, 
+      |                                                 ^~~~~~~~~~~~~~~~~~~~~~~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:3618:19: warning: mixture of designated and non-designated initializers in the same initializer list is a C99 extension [-Wc99-designator]
+ 3618 |                   .CREATED = {
+      |                   ^~~~~~~~~~~~
+ 3619 |                     /* enum entry getter CREATED = */  _konan_function_106_impl,
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3620 |                   },
+      |                   ~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:3630:56: note: first non-designated initializer is here
+ 3630 |                   /* Type for PageLifecycleState = */  _konan_function_105_type, 
+      |                                                        ^~~~~~~~~~~~~~~~~~~~~~~~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:3633:19: warning: mixture of designated and non-designated initializers in the same initializer list is a C99 extension [-Wc99-designator]
+ 3633 |                   .PageEvent = {
+      |                   ^~~~~~~~~~~~~~
+ 3634 |                     /* Type for PageEvent = */  _konan_function_122_type, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3635 |                     /* <init> = */ _konan_function_123_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3636 |                     /* <get-state> = */ _konan_function_124_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3637 |                     /* <get-tag> = */ _konan_function_125_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3638 |                     /* <get-timestampMs> = */ _konan_function_126_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3639 |                     /* component1 = */ _konan_function_127_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3640 |                     /* component2 = */ _konan_function_128_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3641 |                     /* component3 = */ _konan_function_129_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3642 |                     /* copy = */ _konan_function_130_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3643 |                     /* equals = */ _konan_function_131_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3644 |                     /* hashCode = */ _konan_function_132_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3645 |                     /* toString = */ _konan_function_133_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3646 |                   },
+      |                   ~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:3647:57: note: first non-designated initializer is here
+ 3647 |                   /* Type for GlobalMemoryMonitor = */  _konan_function_110_type, 
+      |                                                         ^~~~~~~~~~~~~~~~~~~~~~~~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:3675:17: warning: mixture of designated and non-designated initializers in the same initializer list is a C99 extension [-Wc99-designator]
+ 3675 |                 .PerfLogger = {
+      |                 ^~~~~~~~~~~~~~~
+ 3676 |                   /* Type for PerfLogger = */  _konan_function_144_type, 
+      |                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3677 |                   /* Instance for PerfLogger = */ _konan_function_144_instance_impl, 
+      |                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3678 |                   /* event = */ _konan_function_145_impl, 
+      |                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3679 |                   /* get = */ _konan_function_146_impl, 
+      |                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3680 |                   /* mark = */ _konan_function_147_impl, 
+      |                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3681 |                 },
+      |                 ~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:3686:31: note: first non-designated initializer is here
+ 3686 |                 /* nowMs = */ _konan_function_143_impl, 
+      |                               ^~~~~~~~~~~~~~~~~~~~~~~~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:3470:15: warning: mixture of designated and non-designated initializers in the same initializer list is a C99 extension [-Wc99-designator]
+ 3470 |               .ComposeIcons = {
+      |               ^~~~~~~~~~~~~~~~~
+ 3471 |                 /* Type for ComposeIcons = */  _konan_function_17_type, 
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3472 |                 /* Instance for ComposeIcons = */ _konan_function_17_instance_impl, 
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3473 |                 /* <get-ArrowBack> = */ _konan_function_18_impl, 
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3474 |                 /* <get-Info> = */ _konan_function_19_impl, 
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3475 |               },
+      |               ~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:3688:51: note: first non-designated initializer is here
+ 3688 |               /* <get-nativeResourceManager> = */ _konan_function_15_impl, 
+      |                                                   ^~~~~~~~~~~~~~~~~~~~~~~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:3464:13: warning: mixture of designated and non-designated initializers in the same initializer list is a C99 extension [-Wc99-designator]
+ 3464 |             .Greeting = {
+      |             ^~~~~~~~~~~~~
+ 3465 |               /* Type for Greeting = */  _konan_function_12_type, 
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3466 |               /* <init> = */ _konan_function_13_impl, 
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3467 |               /* greet = */ _konan_function_14_impl, 
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3468 |             },
+      |             ~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp11662545674247087150/api.cpp:3695:43: note: first non-designated initializer is here
+ 3695 |             /* ClearStressTestStates = */ ClearStressTestStates, 
+      |                                           ^~~~~~~~~~~~~~~~~~~~~
+103 warnings generated.
+i: <org.jetbrains.compose.ui:ui> @ /Users/jinshuo/Desktop/Workspace/CPF_CMP/compose-multiplatform-core/compose/ui/ui/src/ohosMain/fusionRenderer/kotlin/androidx/compose/ui/interop/ArkUIViewFusionRenderNode.kt:233:32: Function 'setWindowPosition' can not be called: No function found for symbol 'org.jetbrains.skiko/ExternalRenderNode.setWindowPosition|setWindowPosition(kotlin.Float;kotlin.Float){}[0]'
+i: <org.jetbrains.compose.ui:ui> @ /Users/jinshuo/Desktop/Workspace/CPF_CMP/compose-multiplatform-core/compose/ui/ui/src/ohosMain/fusionRenderer/kotlin/androidx/compose/ui/interop/ArkUIViewFusionRenderNode.kt:245:36: Function 'setWindowPosition' can not be called: No function found for symbol 'org.jetbrains.skiko/ExternalRenderNode.setWindowPosition|setWindowPosition(kotlin.Float;kotlin.Float){}[0]'
+
+> Task :composeApp:cinteropResourceOhosX64
+> Task :composeApp:convertXmlValueResourcesForOhosX64Main NO-SOURCE
+> Task :composeApp:copyNonXmlValueResourcesForOhosX64Main NO-SOURCE
+> Task :composeApp:prepareComposeResourcesTaskForOhosX64Main NO-SOURCE
+> Task :composeApp:generateResourceAccessorsForOhosX64Main NO-SOURCE
+> Task :composeApp:generateActualResourceCollectorsForOhosX64Main
+
+> Task :composeApp:compileKotlinOhosX64
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/MainPage.kt:135:40 'fun centerAlignedTopAppBarColors(containerColor: Color = ..., scrolledContainerColor: Color = ..., navigationIconContentColor: Color = ..., titleContentColor: Color = ..., actionIconContentColor: Color = ...): TopAppBarColors' is deprecated. Use topAppBarColors instead.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/accessibility/AccessibilityVoiceControlsLab.kt:287:13 'fun TabRow(selectedTabIndex: Int, modifier: Modifier = ..., containerColor: Color = ..., contentColor: Color = ..., indicator: ComposableFunction1<List<TabPosition>, Unit> = ..., divider: ComposableFunction0<Unit> = ..., tabs: ComposableFunction0<Unit>): Unit' is deprecated. Replaced with PrimaryTabRow and SecondaryTabRow.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/AntiAliasDemo.kt:61:5 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/AntiAliasDemo.kt:175:5 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/AntiAliasDemo.kt:192:5 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/CanvasBasicDrawingDemo.kt:53:9 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/CardEffectComboDemo.kt:62:17 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/CardEffectComboDemo.kt:87:17 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/ComplexAnimationDemo.kt:136:17 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/ImageDrawingDemo.kt:52:5 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/LayerZOrderAlphaDemo.kt:70:17 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/LayerZOrderAlphaDemo.kt:147:25 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/LayerZOrderAlphaDemo.kt:195:25 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/LayerZOrderAlphaDemo.kt:236:25 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/LayerZOrderAlphaDemo.kt:324:25 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/LayerZOrderAlphaDemo.kt:422:25 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/LayerZOrderAlphaDemo.kt:601:33 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/LayerZOrderAlphaDemo.kt:611:33 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/OffscreenRenderingDemo.kt:73:5 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/OffscreenRenderingDemo.kt:246:7 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/OffscreenRenderingDemo.kt:297:7 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/PathDrawingDemo.kt:53:9 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/PathDrawingDemo.kt:351:17 'fun quadraticBezierTo(x1: Float, y1: Float, x2: Float, y2: Float): Unit' is deprecated. Use quadraticTo() for consistency with cubicTo().
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/PathDrawingDemo.kt:389:13 'fun quadraticBezierTo(x1: Float, y1: Float, x2: Float, y2: Float): Unit' is deprecated. Use quadraticTo() for consistency with cubicTo().
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/render/PathDrawingDemo.kt:397:13 'fun quadraticBezierTo(x1: Float, y1: Float, x2: Float, y2: Float): Unit' is deprecated. Use quadraticTo() for consistency with cubicTo().
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/sectionItem/AccessibilityTestPage.kt:142:25 'fun LinearProgressIndicator(progress: Float, modifier: Modifier = ..., color: Color = ..., trackColor: Color = ..., strokeCap: StrokeCap = ...): Unit' is deprecated. Use the overload that takes `progress` as a lambda.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/sectionItem/ProgressIndicator.kt:90:13 'fun LinearProgressIndicator(progress: Float, modifier: Modifier = ..., color: Color = ..., trackColor: Color = ..., strokeCap: StrokeCap = ...): Unit' is deprecated. Use the overload that takes `progress` as a lambda.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/sectionItem/ProgressIndicator.kt:132:13 'fun CircularProgressIndicator(progress: Float, modifier: Modifier = ..., color: Color = ..., strokeWidth: Dp = ..., trackColor: Color = ..., strokeCap: StrokeCap = ...): Unit' is deprecated. Use the overload that takes `progress` as a lambda.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/mainpage/sectionItem/Text.kt:241:9 'fun ClickableText(text: AnnotatedString, modifier: Modifier = ..., style: TextStyle = ..., softWrap: Boolean = ..., overflow: TextOverflow = ..., maxLines: Int = ..., onTextLayout: (TextLayoutResult) -> Unit = ..., onClick: (Int) -> Unit): Unit' is deprecated. Use Text or BasicText and pass an AnnotatedString that contains a LinkAnnotation. Check LinkAnnotation's documentation for more details and samples.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/commonMain/kotlin/com/tencent/compose/sample/memory/MemoryMonitor.kt:262:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. Consider using the '-Xexpect-actual-classes' flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/ohosX64Main/kotlin/com/tencent/compose/sample/mainpage/accessibility/AccessibilityCmpArkTsRoleCompareDemo.kt:252:21 'fun TabRow(selectedTabIndex: Int, modifier: Modifier = ..., containerColor: Color = ..., contentColor: Color = ..., indicator: ComposableFunction1<List<TabPosition>, Unit> = ..., divider: ComposableFunction0<Unit> = ..., tabs: ComposableFunction0<Unit>): Unit' is deprecated. Replaced with PrimaryTabRow and SecondaryTabRow.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/ohosX64Main/kotlin/com/tencent/compose/sample/mainpage/render/CanvasInteropDoubleLayerDemo.kt:43:17 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/ohosX64Main/kotlin/com/tencent/compose/sample/mainpage/render/CanvasInteropDoubleLayerDemo.kt:112:25 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/ohosX64Main/kotlin/com/tencent/compose/sample/mainpage/render/CanvasInteropSingleLayerDemo.kt:43:17 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/ohosX64Main/kotlin/com/tencent/compose/sample/mainpage/render/CanvasInteropSingleLayerDemo.kt:106:25 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/ohosX64Main/kotlin/com/tencent/compose/sample/mainpage/render/LayerInteropSingleDemo.kt:45:5 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/ohosX64Main/kotlin/com/tencent/compose/sample/mainpage/render/LayerInteropSingleDemo.kt:107:9 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/ohosX64Main/kotlin/com/tencent/compose/sample/mainpage/render/OffscreenCacheInteropDemo.kt:70:9 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/ohosX64Main/kotlin/com/tencent/compose/sample/mainpage/render/OffscreenCacheInteropDemo.kt:148:17 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/ohosX64Main/kotlin/com/tencent/compose/sample/mainpage/render/OffscreenCacheInteropDemo.kt:200:9 'fun Divider(modifier: Modifier = ..., thickness: Dp = ..., color: Color = ...): Unit' is deprecated. Renamed to HorizontalDivider.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/ohosX64Main/kotlin/com/tencent/compose/sample/mainpage/render/WindowRotationDemo.kt:38:9 'when' is exhaustive so 'else' is redundant here.
+w: file:///Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/composeApp/src/ohosX64Main/kotlin/com/tencent/compose/sample/memory/PlatformMemory.ohos.kt:13:1 'expect'/'actual' classes (including interfaces, objects, annotations, enums, and 'actual' typealiases) are in Beta. Consider using the '-Xexpect-actual-classes' flag to suppress this warning. Also see: https://youtrack.jetbrains.com/issue/KT-61573
+
+> Task :composeApp:linkReleaseSharedOhosX64
+[CAdapterGenerator] No module filtering, including all 3 modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+[CAdapterGenerator] No module filtering configured, including all modules
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:941:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+  941 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:956:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+  956 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:981:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+  981 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:996:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+  996 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1012:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1012 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1028:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1028 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1045:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1045 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1060:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1060 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1074:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1074 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1088:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1088 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1102:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1102 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1116:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1116 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1130:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1130 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1144:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1144 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1158:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1158 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1172:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1172 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1187:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1187 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1203:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1203 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1218:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1218 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1232:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1232 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1247:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1247 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1263:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1263 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1379:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1379 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1394:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1394 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1409:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1409 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1426:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1426 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1440:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1440 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1467:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1467 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1482:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1482 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1496:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1496 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1523:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1523 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1551:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1551 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1565:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1565 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1579:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1579 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1595:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1595 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1610:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1610 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1624:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1624 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1639:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1639 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1668:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1668 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1682:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1682 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1709:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1709 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1736:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1736 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1763:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1763 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1790:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1790 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1818:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1818 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1832:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1832 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1859:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1859 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1886:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1886 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:1953:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 1953 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2005:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2005 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2020:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2020 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2075:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2075 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2090:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2090 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2105:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2105 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2119:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2119 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2134:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2134 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2149:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2149 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2163:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2163 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2180:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2180 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2195:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2195 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2209:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2209 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2224:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2224 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2248:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2248 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2263:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2263 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2332:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2332 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2348:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2348 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2427:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2427 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2551:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2551 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2588:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2588 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2601:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2601 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2627:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2627 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2641:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2641 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2654:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2654 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2667:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2667 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2680:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2680 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2719:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2719 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2732:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2732 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2784:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2784 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2858:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2858 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2871:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2871 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2884:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2884 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2921:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2921 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2946:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2946 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2960:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2960 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2973:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2973 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2986:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2986 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:2999:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 2999 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:3060:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 3060 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:3229:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 3229 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:3245:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 3245 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:3391:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 3391 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:3404:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+ 3404 | }
+      | ^
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:3505:21: warning: mixture of designated and non-designated initializers in the same initializer list is a C99 extension [-Wc99-designator]
+ 3505 |                     .BLUR = {
+      |                     ^~~~~~~~~
+ 3506 |                       /* enum entry getter BLUR = */  _konan_function_45_impl,
+      |                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3507 |                     },
+      |                     ~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:3520:50: note: first non-designated initializer is here
+ 3520 |                     /* Type for EffectType = */  _konan_function_44_type, 
+      |                                                  ^~~~~~~~~~~~~~~~~~~~~~~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:3523:21: warning: mixture of designated and non-designated initializers in the same initializer list is a C99 extension [-Wc99-designator]
+ 3523 |                     .LINEAR = {
+      |                     ^~~~~~~~~~~
+ 3524 |                       /* enum entry getter LINEAR = */  _konan_function_51_impl,
+      |                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3525 |                     },
+      |                     ~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:3532:52: note: first non-designated initializer is here
+ 3532 |                     /* Type for GradientType = */  _konan_function_50_type, 
+      |                                                    ^~~~~~~~~~~~~~~~~~~~~~~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:3535:21: warning: mixture of designated and non-designated initializers in the same initializer list is a C99 extension [-Wc99-designator]
+ 3535 |                     .MULTIPLY = {
+      |                     ^~~~~~~~~~~~~
+ 3536 |                       /* enum entry getter MULTIPLY = */  _konan_function_55_impl,
+      |                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3537 |                     },
+      |                     ~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:3544:53: note: first non-designated initializer is here
+ 3544 |                     /* Type for BlendModeType = */  _konan_function_54_type, 
+      |                                                     ^~~~~~~~~~~~~~~~~~~~~~~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:3482:19: warning: mixture of designated and non-designated initializers in the same initializer list is a C99 extension [-Wc99-designator]
+ 3482 |                   .DiffResult = {
+      |                   ^~~~~~~~~~~~~~~
+ 3483 |                     /* Type for DiffResult = */  _konan_function_26_type, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3484 |                     /* <init> = */ _konan_function_27_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3485 |                     /* <get-diffMask> = */ _konan_function_28_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3486 |                     /* <get-diffPercentage> = */ _konan_function_29_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3487 |                     /* <get-diffPixels> = */ _konan_function_30_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3488 |                     /* <get-passed> = */ _konan_function_31_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3489 |                     /* <get-totalPixels> = */ _konan_function_32_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3490 |                     /* component1 = */ _konan_function_33_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3491 |                     /* component2 = */ _konan_function_34_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3492 |                     /* component3 = */ _konan_function_35_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3493 |                     /* component4 = */ _konan_function_36_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3494 |                     /* component5 = */ _konan_function_37_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3495 |                     /* copy = */ _konan_function_38_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3496 |                     /* equals = */ _konan_function_39_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3497 |                     /* hashCode = */ _konan_function_40_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:3546:50: note: first non-designated initializer is here
+ 3546 |                   /* createEmptyImageBitmap = */ _konan_function_23_impl, 
+      |                                                  ^~~~~~~~~~~~~~~~~~~~~~~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:3481:17: warning: mixture of designated and non-designated initializers in the same initializer list is a C99 extension [-Wc99-designator]
+ 3481 |                 .render = {
+      |                 ^~~~~~~~~~~
+ 3482 |                   .DiffResult = {
+      |                   ~~~~~~~~~~~~~~~
+ 3483 |                     /* Type for DiffResult = */  _konan_function_26_type, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3484 |                     /* <init> = */ _konan_function_27_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3485 |                     /* <get-diffMask> = */ _konan_function_28_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3486 |                     /* <get-diffPercentage> = */ _konan_function_29_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3487 |                     /* <get-diffPixels> = */ _konan_function_30_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3488 |                     /* <get-passed> = */ _konan_function_31_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3489 |                     /* <get-totalPixels> = */ _konan_function_32_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3490 |                     /* component1 = */ _konan_function_33_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3491 |                     /* component2 = */ _konan_function_34_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3492 |                     /* component3 = */ _konan_function_35_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3493 |                     /* component4 = */ _konan_function_36_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3494 |                     /* component5 = */ _konan_function_37_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3495 |                     /* copy = */ _konan_function_38_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3496 |                     /* equals = */ _konan_function_39_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:3596:56: note: first non-designated initializer is here
+ 3596 |                 /* <get-LocalComposeControllerId> = */ _konan_function_22_impl, 
+      |                                                        ^~~~~~~~~~~~~~~~~~~~~~~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:3600:19: warning: mixture of designated and non-designated initializers in the same initializer list is a C99 extension [-Wc99-designator]
+ 3600 |                   .MEMORY_LEVEL_MODERATE = {
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3601 |                     /* enum entry getter MEMORY_LEVEL_MODERATE = */  _konan_function_100_impl,
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3602 |                   },
+      |                   ~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:3614:49: note: first non-designated initializer is here
+ 3614 |                   /* Type for MemoryLevel = */  _konan_function_98_type, 
+      |                                                 ^~~~~~~~~~~~~~~~~~~~~~~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:3618:19: warning: mixture of designated and non-designated initializers in the same initializer list is a C99 extension [-Wc99-designator]
+ 3618 |                   .CREATED = {
+      |                   ^~~~~~~~~~~~
+ 3619 |                     /* enum entry getter CREATED = */  _konan_function_106_impl,
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3620 |                   },
+      |                   ~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:3630:56: note: first non-designated initializer is here
+ 3630 |                   /* Type for PageLifecycleState = */  _konan_function_105_type, 
+      |                                                        ^~~~~~~~~~~~~~~~~~~~~~~~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:3633:19: warning: mixture of designated and non-designated initializers in the same initializer list is a C99 extension [-Wc99-designator]
+ 3633 |                   .PageEvent = {
+      |                   ^~~~~~~~~~~~~~
+ 3634 |                     /* Type for PageEvent = */  _konan_function_122_type, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3635 |                     /* <init> = */ _konan_function_123_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3636 |                     /* <get-state> = */ _konan_function_124_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3637 |                     /* <get-tag> = */ _konan_function_125_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3638 |                     /* <get-timestampMs> = */ _konan_function_126_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3639 |                     /* component1 = */ _konan_function_127_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3640 |                     /* component2 = */ _konan_function_128_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3641 |                     /* component3 = */ _konan_function_129_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3642 |                     /* copy = */ _konan_function_130_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3643 |                     /* equals = */ _konan_function_131_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3644 |                     /* hashCode = */ _konan_function_132_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3645 |                     /* toString = */ _konan_function_133_impl, 
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3646 |                   },
+      |                   ~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:3647:57: note: first non-designated initializer is here
+ 3647 |                   /* Type for GlobalMemoryMonitor = */  _konan_function_110_type, 
+      |                                                         ^~~~~~~~~~~~~~~~~~~~~~~~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:3675:17: warning: mixture of designated and non-designated initializers in the same initializer list is a C99 extension [-Wc99-designator]
+ 3675 |                 .PerfLogger = {
+      |                 ^~~~~~~~~~~~~~~
+ 3676 |                   /* Type for PerfLogger = */  _konan_function_144_type, 
+      |                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3677 |                   /* Instance for PerfLogger = */ _konan_function_144_instance_impl, 
+      |                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3678 |                   /* event = */ _konan_function_145_impl, 
+      |                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3679 |                   /* get = */ _konan_function_146_impl, 
+      |                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3680 |                   /* mark = */ _konan_function_147_impl, 
+      |                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3681 |                 },
+      |                 ~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:3686:31: note: first non-designated initializer is here
+ 3686 |                 /* nowMs = */ _konan_function_143_impl, 
+      |                               ^~~~~~~~~~~~~~~~~~~~~~~~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:3470:15: warning: mixture of designated and non-designated initializers in the same initializer list is a C99 extension [-Wc99-designator]
+ 3470 |               .ComposeIcons = {
+      |               ^~~~~~~~~~~~~~~~~
+ 3471 |                 /* Type for ComposeIcons = */  _konan_function_17_type, 
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3472 |                 /* Instance for ComposeIcons = */ _konan_function_17_instance_impl, 
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3473 |                 /* <get-ArrowBack> = */ _konan_function_18_impl, 
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3474 |                 /* <get-Info> = */ _konan_function_19_impl, 
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3475 |               },
+      |               ~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:3688:51: note: first non-designated initializer is here
+ 3688 |               /* <get-nativeResourceManager> = */ _konan_function_15_impl, 
+      |                                                   ^~~~~~~~~~~~~~~~~~~~~~~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:3464:13: warning: mixture of designated and non-designated initializers in the same initializer list is a C99 extension [-Wc99-designator]
+ 3464 |             .Greeting = {
+      |             ^~~~~~~~~~~~~
+ 3465 |               /* Type for Greeting = */  _konan_function_12_type, 
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3466 |               /* <init> = */ _konan_function_13_impl, 
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3467 |               /* greet = */ _konan_function_14_impl, 
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3468 |             },
+      |             ~
+/var/folders/sc/4p0fm81s329fbvhll7nnl3w00000gn/T/konan_temp6674937428472698886/api.cpp:3695:43: note: first non-designated initializer is here
+ 3695 |             /* ClearStressTestStates = */ ClearStressTestStates, 
+      |                                           ^~~~~~~~~~~~~~~~~~~~~
+103 warnings generated.
+i: <org.jetbrains.compose.ui:ui> @ /Users/jinshuo/Desktop/Workspace/CPF_CMP/compose-multiplatform-core/compose/ui/ui/src/ohosMain/fusionRenderer/kotlin/androidx/compose/ui/interop/ArkUIViewFusionRenderNode.kt:233:32: Function 'setWindowPosition' can not be called: No function found for symbol 'org.jetbrains.skiko/ExternalRenderNode.setWindowPosition|setWindowPosition(kotlin.Float;kotlin.Float){}[0]'
+i: <org.jetbrains.compose.ui:ui> @ /Users/jinshuo/Desktop/Workspace/CPF_CMP/compose-multiplatform-core/compose/ui/ui/src/ohosMain/fusionRenderer/kotlin/androidx/compose/ui/interop/ArkUIViewFusionRenderNode.kt:245:36: Function 'setWindowPosition' can not be called: No function found for symbol 'org.jetbrains.skiko/ExternalRenderNode.setWindowPosition|setWindowPosition(kotlin.Float;kotlin.Float){}[0]'
+
+> Task :composeApp:publishReleaseBinariesToHarmonyApp
+
+BUILD SUCCESSFUL in 10m 21s
+16 actionable tasks: 16 executed

@@ -1,0 +1,9 @@
+10-30 04:07:17.702 62098 62098 I A00000/com.tencent.compose/render_mode: androidx_compose_ui_arkui_ArkUIViewController_getRendererTypeId id=0
+10-30 04:07:17.706 62098 62098 I A00000/com.tencent.compose/render_mode: getRenderBackendId id=0 fnMode=1
+10-30 04:07:17.718 62098 62098 I A08001/com.tencent.compose/SystemThemeFontResolver: fontId=h0011 stylish=1 candidates=1
+10-30 04:07:17.718 62098 62098 I A08001/com.tencent.compose/SystemThemeFontResolver: descriptor fullName=ShuS-SC family=ShuS-SC path=/system/fonts/ShuS-SC.ttf
+10-30 04:07:17.718 62098 62098 I A08001/com.tencent.compose/SystemThemeFontResolver: resolved fontId=h0011 path=/system/fonts/ShuS-SC.ttf
+10-30 04:07:17.718 62098 62098 I A08001/com.tencent.compose/DensityManager: FONT system theme path resolved: /system/fonts/ShuS-SC.ttf
+10-30 04:07:17.814 62098 62098 I A00000/com.tencent.compose/Konan_main: [INFO] CMP_FONT, Skia paragraph style family=FontFamily.Default themePath=/system/fonts/ShuS-SC.ttf resolved=true
+10-30 04:07:17.818 62098 62098 I A00000/com.tencent.compose/Konan_main: [INFO] CMP_FONT, Skia paragraph style family=FontFamily.Default themePath=/system/fonts/ShuS-SC.ttf resolved=true
+10-30 04:07:17.819 62098 62098 I A00000/com.tencent.compose/Konan_main: [INFO] CMP_FONT, Skia paragraph style family=FontFamily.Default themePath=/system/fonts/ShuS-SC.ttf resolved=true

@@ -1,0 +1,6 @@
+[ohos-build][2026-10-30 04:09:19][build_compose_har] 步骤结束 [1/3]：耗时 3 秒
+[ohos-build][2026-10-30 04:09:21][install_compose_har_and_ohpm_install] 步骤结束 [2/3]：耗时 2 秒
+[ohos-build][2026-10-30 04:09:23][build_hap_install_and_launch] HAP 已归档: /Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/harmonyApp/hap-archives/20261030040923_CMP系统主题字体P3-Skia默认字体恢复修复_release_E.hap
+[ohos-build][2026-10-30 04:09:26][build_hap_install_and_launch] 步骤结束 [3/3]：耗时 5 秒
+[ohos-build][2026-10-30 04:09:26] 本次全流程执行时间: 10 秒
+[ohos-build-workflow] stages_ok=true failed_stage=none exit=0

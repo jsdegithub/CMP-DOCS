@@ -1,0 +1,124 @@
+[ohos-build][2026-10-30 00:44:31] 跳过清空控制台历史信息
+[ohos-build][2026-10-30 00:44:31] 脚本开始时间: 2026-10-30 00:44:31
+======================================================================
+构建菜单
+======================================================================
+==============环节内容====================
+===== 执行环节1(一): 发布skiko产物 =====
+===== 执行环节2(二): 发布跨端产物 =====
+===== 执行环节3(三): 发布样例产物 =====
+===== 执行环节4(四): 编译compose.har =====
+===== 执行环节5(五): 替换compose.har =====
+===== 执行环节6(六): 编译hap =====
+===== 执行环节7(七): 归档hap =====
+===== 执行环节8(八): 安装hap =====
+===== 执行环节9(九): 拉起应用 =====
+
+请选择要执行的构建选项:
+A: 修改了core仓库，但未修改compose目录 - 执行环节2到9
+AA: 修改了core仓库，且修改了compose目录 - 执行环节2到9（包含环节4、5）
+B: 修改了ohrender/skiko且需要刷新core - 执行所有环节（1到9）
+BB: 修改了ohrender/skiko但不刷新core - 执行环节1、3、6到9
+C: 只修改了sample仓库 - 执行环节3和6到9
+D: 无源码修改，重新编译/归档/安装/拉起hap - 执行环节6到9
+E: 从compose.har开始编译直至sample运行 - 执行环节4到9
+
+渲染管线快捷后缀: 0=fusion-renderer, 1=skia；示例 AA0/AA1。
+不加后缀时使用当前 RENDERER_BACKEND=fusion-renderer。
+[ohos-build][2026-10-30 00:44:31] 选择了D: 无源码修改，重新编译/归档/安装/拉起hap
+[ohos-build][2026-10-30 00:44:31] BUILD_MODE=release
+======================================================================
+工程信息
+======================================================================
+[ohos-build][2026-10-30 00:44:31] 当前工程信息：
+SAMPLE_PROJECT_PATH -> /Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo
+BUNDLE_NAME -> com.tencent.compose
+CORE_PROJECT_PATH -> /Users/jinshuo/Desktop/Workspace/CPF_CMP/compose-multiplatform-core
+SKIKO_PROJECT_PATH -> /Users/jinshuo/Desktop/Workspace/CPF_CMP/third_party/skiko
+PLATFORM_PROJECT_PATH -> /Users/jinshuo/Desktop/Workspace/CPF_CMP/compose-multiplatform
+HAP_ARCHIVE_DIR -> /Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/harmonyApp/hap-archives
+RENDERER_BACKEND -> fusion-renderer
+======================================================================
+开始执行：选项=D，BUILD_MODE=release，总步骤=1
+======================================================================
+======================================================================
+步骤开始 [1/1]：build_hap_install_and_launch
+======================================================================
+[ohos-build][2026-10-30 00:44:31][build_hap_install_and_launch] ===== 执行环节六到九 =====
+[ohos-build][2026-10-30 00:44:31][build_hap_install_and_launch] ===== 执行环节六: 编译hap =====
+> hvigor [33mWARN: The project has not explicitly set the 'targetSdkVersion' version at build-profile.json5. It is recommended to configure it. Reference: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-profile-app#section45865492619[39m
+> hvigor [32mUP-TO-DATE :entry:default@PreBuild...  [39m
+> hvigor [32mFinished :entry:default@CreateModuleInfo... after 1 ms [39m
+> hvigor [32mUP-TO-DATE :entry:default@GenerateMetadata...  [39m
+> hvigor [32mFinished :entry:default@ConfigureCmake... after 12 ms [39m
+> hvigor [32mUP-TO-DATE :entry:default@MergeProfile...  [39m
+> hvigor [32mUP-TO-DATE :entry:default@CreateBuildProfile...  [39m
+> hvigor [32mFinished :entry:default@PreCheckSyscap... after 1 ms [39m
+> hvigor [32mFinished :entry:default@ProcessIntegratedHsp... after 1 ms [39m
+> hvigor [32mFinished :entry:default@BuildNativeWithCmake... after 8 ms [39m
+> hvigor [32mUP-TO-DATE :entry:default@MakePackInfo...  [39m
+> hvigor [32mFinished :entry:default@SyscapTransform... after 2 ms [39m
+> hvigor [32mUP-TO-DATE :entry:default@GeneratePkgContextInfo...  [39m
+> hvigor [32mUP-TO-DATE :entry:default@ProcessProfile...  [39m
+> hvigor [32mUP-TO-DATE :entry:default@ProcessRouterMap...  [39m
+> hvigor [32mUP-TO-DATE :entry:default@ProcessShareConfig...  [39m
+> hvigor [32mFinished :entry:default@ProcessStartupConfig... after 1 ms [39m
+> hvigor [32mUP-TO-DATE :entry:default@ProcessResource...  [39m
+> hvigor [32mUP-TO-DATE :entry:default@GenerateLoaderJson...  [39m
+> hvigor [32mFinished :entry:default@CompileResource... after 272 ms [39m
+> hvigor [32mFinished :entry:default@BuildJS... after 1 ms [39m
+> hvigor [32mFinished :entry:default@BuildNativeWithNinja... after 477 ms [39m
+> hvigor [32mFinished :entry:default@ProcessLibs... after 203 ms [39m
+> hvigor [33mWARN: [33mWARN: [33m[33mArkTS:WARN File: /Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/harmonyApp/entry/src/main/ets/entryability/EntryAbility.ets:32:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/harmonyApp/entry/src/main/ets/entryability/SecondAbility.ets:31:5
+ Function may throw exceptions. Special handling is required.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/harmonyApp/entry/src/main/ets/pages/ComposeInterops.ets:160:32
+ 'showToast' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/harmonyApp/entry/src/main/ets/pages/ComposeInterops.ets:163:30
+ 'showToast' has been deprecated.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/harmonyApp/entry/src/main/ets/pages/ComposeInterops.ets:382:6
+ The 'accessibilityNextFocusId' API is supported since SDK version 18. However, the current compatible SDK version is 17.
+[39m[39m
+[33mWARN: [33m[33mArkTS:WARN File: /Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/harmonyApp/entry/src/main/ets/pages/Index.ets:64:60
+ To use this API, you need to apply for the permissions: ohos.permission.READ_PASTEBOARD
+[39m[39m
+[39m
+> hvigor [32mFinished :entry:default@CompileArkTS... after 390 ms [39m
+> hvigor [32mFinished :entry:default@DoNativeStrip... after 81 ms [39m
+> hvigor [32mFinished :entry:default@CacheNativeLibs... after 2 ms [39m
+> hvigor [32mFinished :entry:default@GeneratePkgModuleJson... after 1 ms [39m
+> hvigor [32mFinished :entry:default@ProcessCompiledResources... after 1 ms [39m
+> hvigor [33mWARN: Bytecode HARs [@cpf-kmp-cmp/compose] to integrate are not obfuscated and will not be obfuscated later.[39m
+> hvigor [33mWARN: If obfuscation is needed, enable obfuscation settings in this build process; failing to do so may prevent future obfuscation. 
+               Properly configure obfuscation rules to avoid runtime issues.[39m
+> hvigor [32mFinished :entry:default@PackageHap... after 90 ms [39m
+> hvigor [32mFinished :entry:default@PackingCheck... after 3 ms [39m
+> hvigor [32mFinished :entry:default@SignHap... after 510 ms [39m
+> hvigor [32mFinished :entry:default@CollectDebugSymbol... after 1 ms [39m
+> hvigor [32mFinished :entry:assembleHap... after 1 ms [39m
+> hvigor [32mBUILD SUCCESSFUL in 1 s 477 ms [39m
+[ohos-build][2026-10-30 00:44:33][build_hap_install_and_launch] 定位待安装 HAP
+[ohos-build][2026-10-30 00:44:33][build_hap_install_and_launch] ===== 执行环节七: 归档hap =====
+[ohos-build][2026-10-30 00:44:33][build_hap_install_and_launch] HAP 已归档: /Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/harmonyApp/hap-archives/20261030004433_CMP系统主题字体P2-显式SystemFont修复-最终运行_release_D.hap
+[ohos-build][2026-10-30 00:44:33][build_hap_install_and_launch] HAP 归档清单: /Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/harmonyApp/hap-archives/20261030004433_CMP系统主题字体P2-显式SystemFont修复-最终运行_release_D.json
+[ohos-build][2026-10-30 00:44:33][build_hap_install_and_launch] ===== 执行环节八: 安装hap =====
+[ohos-build][2026-10-30 00:44:33][build_hap_install_and_launch] 安装 hap: /Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/harmonyApp/entry/build/default/outputs/default/entry-default-signed.hap
+[ohos-build][2026-10-30 00:44:33][build_hap_install_and_launch] 执行命令: hdc -t 68Q0223B17000839 install /Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/harmonyApp/entry/build/default/outputs/default/entry-default-signed.hap
+[Info]App install path:/Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/harmonyApp/entry/build/default/outputs/default/entry-default-signed.hap msg:install bundle successfully. 
+AppMod finish
+[ohos-build][2026-10-30 00:44:35][build_hap_install_and_launch] ===== 执行环节九: 拉起应用 =====
+[ohos-build][2026-10-30 00:44:35][build_hap_install_and_launch] 执行命令: hdc -t 68Q0223B17000839 shell aa start -b com.tencent.compose -a EntryAbility
+start ability successfully.
+[ohos-build][2026-10-30 00:44:36][build_hap_install_and_launch] 步骤结束 [1/1]：耗时 5 秒
+[ohos-build][2026-10-30 00:44:36] 脚本结束时间: 2026-10-30 00:44:36
+[ohos-build][2026-10-30 00:44:36] 本次全流程执行时间: 5 秒
+======================================================================
+步骤耗时汇总
+======================================================================
+[ohos-build] [1/1] build_hap_install_and_launch -> 5 秒
+[ohos-build-workflow] stages_ok=true failed_stage=none exit=0

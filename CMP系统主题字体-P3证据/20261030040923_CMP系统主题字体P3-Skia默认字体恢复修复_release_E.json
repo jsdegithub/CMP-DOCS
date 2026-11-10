@@ -1,0 +1,19 @@
+{
+  "archiveTime": "2026-10-30 04:09:23",
+  "timestamp": "20261030040923",
+  "description": "CMP系统主题字体P3-Skia默认字体恢复修复",
+  "safeDescription": "CMP系统主题字体P3-Skia默认字体恢复修复",
+  "option": "E",
+  "buildMode": "release",
+  "bundleName": "com.tencent.compose",
+  "hdcTarget": "68Q0223B17000839",
+  "sampleProjectPath": "/Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo",
+  "coreProjectPath": "/Users/jinshuo/Desktop/Workspace/CPF_CMP/compose-multiplatform-core",
+  "skikoProjectPath": "/Users/jinshuo/Desktop/Workspace/CPF_CMP/third_party/skiko",
+  "platformProjectPath": "/Users/jinshuo/Desktop/Workspace/CPF_CMP/compose-multiplatform",
+  "sourceHap": "/Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/harmonyApp/entry/build/default/outputs/default/entry-default-signed.hap",
+  "archiveHap": "/Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/harmonyApp/hap-archives/20261030040923_CMP系统主题字体P3-Skia默认字体恢复修复_release_E.hap",
+  "archiveManifest": "/Users/jinshuo/Desktop/Workspace/CPF_CMP/kmp-cmp-test-demo/harmonyApp/hap-archives/20261030040923_CMP系统主题字体P3-Skia默认字体恢复修复_release_E.json",
+  "sourceSizeBytes": 105371989,
+  "archiveSizeBytes": 105371989
+}

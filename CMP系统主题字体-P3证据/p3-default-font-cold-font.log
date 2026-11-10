@@ -1,0 +1,10 @@
+10-30 04:09:33.513 64018 64018 I A00000/com.tencent.compose/render_mode: androidx_compose_ui_arkui_ArkUIViewController_getRendererTypeId id=0
+10-30 04:09:33.517 64018 64018 I A00000/com.tencent.compose/render_mode: getRenderBackendId id=0 fnMode=1
+10-30 04:09:33.600 64018 64018 I A08001/com.tencent.compose/SystemThemeFontResolver: fontId=22200001 default=true stylish=0 candidates=2
+10-30 04:09:33.601 64018 64018 I A08001/com.tencent.compose/SystemThemeFontResolver: descriptor fullName=HarmonyOS Sans SC family=HarmonyOS Sans SC path=/system/fonts/HarmonyOS_Sans_SC.ttf
+10-30 04:09:33.601 64018 64018 I A08001/com.tencent.compose/SystemThemeFontResolver: descriptor fullName=HarmonyOS Sans family=HarmonyOS Sans path=/system/fonts/HarmonyOS_Sans.ttf
+10-30 04:09:33.601 64018 64018 I A08001/com.tencent.compose/SystemThemeFontResolver: resolved fontId=22200001 path=/system/fonts/HarmonyOS_Sans_SC.ttf
+10-30 04:09:33.601 64018 64018 I A08001/com.tencent.compose/DensityManager: FONT system theme path resolved: /system/fonts/HarmonyOS_Sans_SC.ttf
+10-30 04:09:33.625 64018 64018 I A00000/com.tencent.compose/Konan_main: [INFO] CMP_FONT, Skia paragraph style family=FontFamily.Default themePath=/system/fonts/HarmonyOS_Sans_SC.ttf resolved=true
+10-30 04:09:33.630 64018 64018 I A00000/com.tencent.compose/Konan_main: [INFO] CMP_FONT, Skia paragraph style family=FontFamily.Default themePath=/system/fonts/HarmonyOS_Sans_SC.ttf resolved=true
+10-30 04:09:33.631 64018 64018 I A00000/com.tencent.compose/Konan_main: [INFO] CMP_FONT, Skia paragraph style family=FontFamily.Default themePath=/system/fonts/HarmonyOS_Sans_SC.ttf resolved=true
