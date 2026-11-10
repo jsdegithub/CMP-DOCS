@@ -5,6 +5,8 @@
 > - 提交：`3ab5e5063ca9324238490003365fb9ba2a92d97f`
 > - 文档更新：2026-11-10
 
+> 代码说明：当前工作树已经是修复后代码。文中“修复前等价逻辑”用于还原故障路径；标注“当前代码”的片段来自当前工作树。
+
 ## 1. 结论
 
 这个问题发生在 Compose 文本处理链路中，不是 ArkUI 没有应用主题字体。
@@ -114,6 +116,8 @@ flowchart LR
     C --> D["[ArkUI] 原生文字使用新字体"]
 ```
 
+这一阶段没有 Compose Core、Skiko 或 Skia 的字体选择逻辑参与；它们要等到 Compose 创建 Paragraph 时才读取字体。
+
 问题不在 ArkUI，而在于 Compose 后续无法稳定得到 ArkUI 当前实际加载的字体文件路径。具体有两类失败：
 
 ```text
@@ -142,6 +146,99 @@ Configuration.fontId
 ```
 
 但旧逻辑没有可靠的 `fontId -> 字体文件路径` 映射，因此尝试从 `STYLISH` 分类中选择候选：
+
+#### Core 怎样取得 `fontId`
+
+Kotlin/Native 侧由 Core 的 `DensityManager.kt` 通过 Messenger 请求字体身份：
+
+```kotlin
+fun getFontId(): String {
+    cachedFontId?.let { return it }
+    val fontId = messenger.send(SEND_GET_FONT_ID).orEmpty()
+    cachedFontId = fontId
+    return fontId
+}
+```
+
+对应的 ArkTS 实现读取 `context.config.fontId`，并启动主题字体路径解析：
+
+```typescript
+const contextFontId = (context.config as ConfigurationWithWeight).fontId
+if (contextFontId !== undefined && contextFontId !== null && contextFontId.length > 0) {
+  requestSystemThemeFontPath(contextFontId)
+  return getSystemThemeFontIdentity(contextFontId)
+}
+```
+
+这里 `context.config.fontId` 由 ArkTS 读取；Kotlin/Native 只是跨层发起请求。
+
+#### 修复前怎样查询 `STYLISH`
+
+下面的“修复前等价逻辑”来自修复前 Resolver：
+
+```typescript
+const stylishNames =
+  await text.getSystemFontFullNamesByType(
+    text.SystemFontType.STYLISH
+  )
+
+const fullNames = stylishNames.length > 0
+  ? stylishNames
+  : await text.getSystemFontFullNamesByType(
+      text.SystemFontType.GENERIC
+    )
+
+let selectedPath = ''
+for (const fullName of fullNames.slice(0, 16)) {
+  const descriptor = await text.getFontDescriptorByFullName(
+    fullName,
+    stylishNames.length > 0
+      ? text.SystemFontType.STYLISH
+      : text.SystemFontType.GENERIC,
+  )
+  const path = descriptor.path ?? ''
+  if (selectedPath.length === 0 && path.length > 0) {
+    selectedPath = path
+  }
+}
+
+cachedPath = selectedPath
+```
+
+逐步解释：
+
+1. ArkTS 调用 `getSystemFontFullNamesByType(STYLISH)`，取得系统归类为“风格字体”的字体名称列表。
+2. 只要列表非空，就把全部 `STYLISH` 名称当成当前主题候选。
+3. 列表为空时，才退回 `GENERIC`。
+4. 最多遍历前 16 个名称，调用 `getFontDescriptorByFullName` 查询每个字体的 descriptor。
+5. 取第一个 `descriptor.path` 非空的文件路径。
+6. 将这个单一路径写入 `cachedPath`。
+
+失败点在于第 2、5 步：
+
+- `STYLISH` 列表表示“存在哪些风格字体”，不表示“当前主题选择了哪一个”。
+- 第一个有路径的字体不一定是 ArkUI 正在使用的主题字体。
+- 如果列表为空或 descriptor 没有可读路径，最终就是空路径。
+
+旧 Resolver 的异步请求逻辑还会在开始解析时先清空缓存：
+
+```typescript
+export function requestSystemThemeFontPath(fontId: string): void {
+  if (
+    fontId.length === 0 ||
+    pendingFontId === fontId ||
+    resolvedFontId === fontId
+  ) {
+    return
+  }
+
+  cachedPath = ''
+  pendingFontId = fontId
+  resolveSystemThemeFontPath(fontId)
+}
+```
+
+因此解析进行期间，`cachedPath` 暂时为空；Paragraph 如果此时读取，就只能回退 HarmonyOS Sans。
 
 ```mermaid
 flowchart TD
@@ -305,6 +402,34 @@ flowchart TD
 
 后台 Worker 不修改 Compose LayoutNode 树，也不决定页面元素位置；它只提前完成较重的文本排版计算。
 
+Worker 的实际启动代码（当前代码）是：
+
+```kotlin
+private val scope =
+    CoroutineScope(SupervisorJob() + textPrefetchWorkerCoroutineContext())
+
+trace("compose:text:prefetch:batch:launch_worker") {
+    scope.launch(CoroutineName("prefetch-text-layout-batch")) {
+        for (index in keys.indices) {
+            nodesToPrefetch[index].prefetchLayout(
+                keys[index],
+                constraints,
+                density,
+                layoutDirection,
+            )
+        }
+    }
+}
+```
+
+OHOS 上 `textPrefetchWorkerCoroutineContext()` 使用：
+
+```kotlin
+Dispatchers.Default + Qos.FFRT_QOS_USER_INTERACTIVE
+```
+
+这正是 Paragraph 可能不在主线程创建的原因。
+
 #### 修复前的线程分叉
 
 两条路径都会调用字体查询接口：
@@ -325,6 +450,19 @@ flowchart TD
 
     classDef problem fill:#ffe5e5,stroke:#c62828,stroke-width:3px,color:#8b0000;
 ```
+
+修复前 NAPI 读取逻辑等价于：
+
+```kotlin
+override fun getSystemThemeFontPath(): String {
+    if (!JsEnv.isOnNapiOwnerThread()) return ""
+
+    return callGlobalArrayFunction("__font_getSystemThemeFontPaths")
+        .joinToString("\n")
+}
+```
+
+它在进入 `callGlobalArrayFunction()` 之前就拒绝后台线程，因此 Worker 没有机会获得 ArkTS 的 `cachedPaths`。
 
 主线程和 Worker 的代码路径：
 
@@ -370,7 +508,43 @@ compose/ui/ui/src/ohosArm64Main/kotlin/androidx/compose/ui/text/platform/OhosNap
 
 业务代码没有指定字体时，Compose 使用 `FontFamily.Default`。
 
-旧逻辑：
+首先要区分两个不同对象：
+
+- `FontFamily.Default` 是 **Core 中的 Compose 逻辑字体**。
+- `cachedPaths` 是 **ArkTS 中的实际字体文件路径列表**。
+
+`Default` 不是 ArkTS 字体查询的返回值，也不会因为用户切换主题字体而被业务 Text 改成具体字体名称。
+
+完整关系如下：
+
+```mermaid
+flowchart TD
+    A["[Core/ui-text] 读取 Text 样式"] --> B["[Core/ui-text] fontFamily 为空"]
+    B --> C["[Core/ui-text] 设置逻辑字体 FontFamily.Default"]
+    C --> D["[Core/ui-text] 创建 Paragraph"]
+    D --> E{"[Core/ui-text] Default / SansSerif？"}
+    E -->|"是"| F["[Core → Core/NAPI] 读取 ArkTS cachedPaths"]
+    F --> G{"[Core/NAPI] 能读取且 cachedPaths 有值？"}
+    G -->|"有值"| H["[native Skia] 加载实际主题字体文件"]
+    H --> I["[Core + native Skia] Default 解析成用户选择的物理字体"]
+    G -->|"为空"| J["[native Skia] 无法加载主题字体"]
+    J --> K["[native Skia] Default 回退到 HarmonyOS Sans"]
+    E -->|"否"| L["[Core/ui-text] 按显式 family 使用原 resolver"]
+```
+
+这在业务代码中的表现是：
+
+```text
+Text("Compose - Skia")
+  -> TextStyle.fontFamily 没有指定
+  -> Core 在创建 Paragraph 时使用 FontFamily.Default
+  -> Default 是稳定不变的逻辑值
+  -> 具体物理字体由 ArkTS 路径、FontCollection 和 resolver 共同决定
+```
+
+因此，日志中一直看到 `FontFamily.Default` 并不表示 ArkTS 查询“返回了 Default”。它只表示 Core 收到了“跟随平台默认字体”的样式请求。
+
+旧逻辑的错误分支是：
 
 ```mermaid
 flowchart TD
@@ -382,6 +556,36 @@ flowchart TD
 
     classDef problem fill:#ffe5e5,stroke:#c62828,stroke-width:3px,color:#8b0000;
 ```
+
+修复前 Kotlin/Core 等价代码如下：
+
+```kotlin
+val targetFontFamily = fontFamily ?: FontFamily.Default
+
+val resolved = fontFamilyResolver.resolve(
+    targetFontFamily,
+    fontWeight ?: FontWeight.Normal,
+    fontStyle ?: FontStyle.Normal,
+    fontSynthesis ?: FontSynthesis.None,
+).value as FontLoadResult
+
+res.fontFamilies = resolved.aliases.toTypedArray()
+res.typeface = resolved.typeface
+```
+
+`DefaultFontFamily` 在字体解析器中继续被展开为：
+
+```kotlin
+is DefaultFontFamily -> FontFamily.SansSerif.aliases
+```
+
+OHOS 的 `SansSerif.aliases` 当前是：
+
+```kotlin
+listOf("HarmonyOS Sans", "Sans-serif")
+```
+
+因此旧代码即使拿到了主题字体路径快照，也没有在 `Default` 解析分支中使用它；实际传给 Skia 的仍是固定 family 名称。
 
 关键调用链：
 
@@ -419,6 +623,35 @@ flowchart TD
 
     classDef problem fill:#ffe5e5,stroke:#c62828,stroke-width:3px,color:#8b0000;
 ```
+
+修复前 Skia 路径的关键代码是：
+
+```kotlin
+val aliases = ensureRegistered(fontFamily)
+
+if (currentPlatform() == Platform.OHOS) {
+    val cached = GlobalTypefaceCache.get(
+        aliases,
+        interceptedWeight.weight,
+        style.slant.ordinal,
+    )
+    if (cached != null) {
+        return cached
+    }
+}
+
+val typeface = fonts.findTypefaces(
+    aliases.toTypedArray(),
+    style,
+).firstOrNull()
+```
+
+其中：
+
+- `ensureRegistered(fontFamily)` 把 `Default` 转成 `HarmonyOS Sans / Sans-serif` alias。
+- `GlobalTypefaceCache` 按 alias、字重和倾斜方式查找旧 Typeface。
+- `fonts.findTypefaces()` 在 Skia `FontCollection` 中按固定 family 查找。
+- ArkTS 返回的主题文件路径没有进入这条分支。
 
 概念说明：
 
@@ -497,6 +730,61 @@ flowchart TD
 | `SkiaParagraphIntrinsicsCache` | 文本 + style + density + resolver | resolver 未变化，返回旧 ParagraphIntrinsics |
 | `GlobalMultiParagraphCache` | 文本 + style + constraints + resolver | 继续复用旧 MultiParagraph |
 
+核心缓存键代码（节选）：
+
+```kotlin
+internal data class ParagraphIntrinsicsKey(
+    val text: String,
+    val style: TextStyle,
+    val annotations: List<AnnotatedString.Range<out AnnotatedString.Annotation>>,
+    val placeholders: List<AnnotatedString.Range<Placeholder>>,
+    val densityDpi: Float,
+    val densityFontScale: Float,
+    val fontFamilyResolver: FontFamily.Resolver,
+)
+
+internal data class MultiParagraphCacheKey(
+    val text: AnnotatedString,
+    val style: TextStyle,
+    val placeholders: List<AnnotatedString.Range<Placeholder>>,
+    val densityDpi: Float,
+    val densityFontScale: Float,
+    val constraints: Constraints,
+    val maxLines: Int,
+    val overflow: TextOverflow,
+    val layoutDirection: LayoutDirection,
+    val fontFamilyResolver: FontFamily.Resolver,
+)
+```
+
+修复前 `ComputedStyle` 也没有主题字体路径字段：
+
+```kotlin
+private data class ComputedStyle(
+    var textForegroundStyle: TextForegroundStyle = TextForegroundStyle.Unspecified,
+    var fontSize: Float = Float.NaN,
+    var fontFamily: FontFamily? = null,
+    // ...
+)
+```
+
+因此字体文件变化后，这些缓存键仍可能相同。
+
+修复前配置更新也没有比较系统字体身份：
+
+```kotlin
+if (densityChanged || fontWeightScaleChanged || localeChanged) {
+    fontFamilyResolver = createFontFamilyResolver()
+}
+
+if (densityChanged || fontWeightScaleChanged ||
+    localeChanged || themeChanged) {
+    requestSyncRefresh()
+}
+```
+
+这里没有 `systemFontIdentityChanged`，所以字体文件变化不会清理文本缓存或重建 resolver。
+
 关键缓存调用链：
 
 ```text
@@ -568,10 +856,141 @@ flowchart TD
 fontId | primaryPath | fallbackPath...
 ```
 
+#### 当前代码：ArkTS 怎样选择路径
+
+当前 Resolver 先读取 ArkUI 已激活的主题资源；只有在没有可读主题文件时，才回退 `STYLISH` / `GENERIC` descriptor：
+
+激活主题目录的检查逻辑：
+
+```typescript
+const THEME_FONT_ROOTS = [
+  '/data/themes/a/app',
+  '/data/themes/b/app',
+]
+
+function resolveThemeFontPathsFromRoot(root: string): Array<string> {
+  const fontDirectory = `${root}/fonts`
+  const paths: Array<string> = []
+
+  if (
+    !fs.accessSync(`${root}/flag`) ||
+    !fs.accessSync(fontDirectory)
+  ) {
+    return []
+  }
+
+  const manifest = JSON.parse(
+    fs.readTextSync(`${fontDirectory}/manifest.json`)
+  )
+
+  // 主字体
+  appendFontPath(paths, fontDirectory, manifest.ttfFileSrc ?? '')
+
+  // 按顺序添加 fallback
+  for (const source of manifest.ttfFileSrcExt ?? []) {
+    appendFontPath(paths, fontDirectory, source)
+  }
+}
+```
+
+如果 manifest 缺失或损坏，当前实现会扫描主题字体目录中的 `.ttf`、`.otf`、`.ttc` 文件作为兼容回退。
+
+拿到候选后的分支是：
+
+```typescript
+let activeThemeFontPaths: Array<string> = [];
+if (fontId !== DEFAULT_FONT_ID) {
+  activeThemeFontPaths = resolveActiveThemeFontPaths();
+}
+
+const genericNames =
+  fontId === DEFAULT_FONT_ID || activeThemeFontPaths.length === 0
+    ? await text.getSystemFontFullNamesByType(
+        text.SystemFontType.GENERIC
+      )
+    : [];
+
+const stylishNames =
+  fontId === DEFAULT_FONT_ID || activeThemeFontPaths.length > 0
+    ? []
+    : await text.getSystemFontFullNamesByType(
+        text.SystemFontType.STYLISH
+      );
+```
+
+最终路径选择规则：
+
+```typescript
+if (fontId !== defaultFontId && activePaths.length > 0) {
+  return activePaths;
+}
+return normalizePaths(fallbackThemeFontPaths);
+```
+
+这意味着：
+
+1. 非默认字体且存在 ArkUI 激活主题文件时，直接使用主题文件。
+2. 不查询 `STYLISH` 覆盖激活文件。
+3. 没有激活主题文件时，才通过 `STYLISH` 或 `GENERIC` descriptor 生成 fallback。
+4. 路径会去重、去空，并去掉 `file://` 前缀，同时保持主字体在前、回退字体在后。
+
+异步请求通过 `pendingFontId` 防止旧结果覆盖新字体：
+
+```typescript
+if (pendingFontId !== fontId) {
+  return;
+}
+
+cachedPaths = selectedPaths;
+resolvedFontId = fontId;
+pendingFontId = '';
+```
+
+例如用户快速从字体 A 切到字体 B：
+
+```text
+A 解析请求发出
+B 解析请求发出，pendingFontId = B
+A 的异步结果返回
+  -> pendingFontId !== A
+  -> 丢弃 A 的结果
+```
+
+ArkTS 写入路径后生成组合身份：
+
+```typescript
+export function getSystemThemeFontIdentity(fontId: string): string {
+  requestSystemThemeFontPath(fontId);
+  return cachedPaths.length > 0
+    ? `${fontId}|${cachedPaths.join('|')}`
+    : fontId;
+}
+```
+
+#### 当前代码：Kotlin 侧路径快照
+
 主线程取得字体路径后保存为线程安全快照：
 
 ```kotlin
 cachedSystemThemeFontPath
+```
+
+核心读取逻辑：
+
+```kotlin
+synchronized(lock) {
+    cachedSystemThemeFontPath?.let { return it }
+}
+
+if (!JsEnv.isOnNapiOwnerThread()) return ""
+
+val path = callGlobalArrayFunction("__font_getSystemThemeFontPaths")
+    .joinToString("\n")
+
+synchronized(lock) {
+    cachedSystemThemeFontPath = path
+}
+return path
 ```
 
 读取规则：
@@ -590,7 +1009,93 @@ null = 还没有查询过
 ""   = 已经查询过，但当前没有主题字体路径
 ```
 
-### 4.3 缓存清理
+### 4.3 修复后的 `Default` 和 Skia 字体加载
+
+当前代码只允许 `Default` 和 `SansSerif` 跟随系统主题：
+
+```kotlin
+internal fun FontFamily.shouldUseSystemThemeFont(
+    isOhos: Boolean,
+): Boolean {
+    if (!isOhos) return false
+    return when (this) {
+        is DefaultFontFamily -> true
+        is GenericFontFamily ->
+            name == FontFamily.SansSerif.name
+        else -> false
+    }
+}
+```
+
+`ParagraphBuilder` 不再无条件把 `Default` 解析成 `HarmonyOS Sans / Sans-serif`：
+
+```kotlin
+val targetFontFamily = fontFamily ?: FontFamily.Default
+
+val useSystemThemeFont =
+    targetFontFamily.shouldUseSystemThemeFont(
+        isOhos = currentPlatform() == Platform.OHOS
+    )
+
+val useResolvedThemeTypeface =
+    useSystemThemeFont &&
+    !isFusionRenderBackendActive &&
+    systemThemeFontPaths.isNotEmpty()
+
+val resolved =
+    if (useSystemThemeFont && !useResolvedThemeTypeface) {
+        null
+    } else {
+        fontFamilyResolver.resolve(
+            targetFontFamily,
+            fontWeight ?: FontWeight.Normal,
+            fontStyle ?: FontStyle.Normal,
+            fontSynthesis ?: FontSynthesis.None,
+        ).value as FontLoadResult
+    }
+```
+
+当前 `ComputedStyle` 将字体路径纳入相等性判断，因此 `SkTextStyle` 缓存会随字体文件变化：
+
+```kotlin
+internal data class ComputedStyle(
+    var systemThemeFontPaths: List<String> = emptyList(),
+    var textForegroundStyle: TextForegroundStyle =
+        TextForegroundStyle.Unspecified,
+    var fontSize: Float = Float.NaN,
+    var fontFamily: FontFamily? = null,
+    // ...
+)
+```
+
+SkiaRender 当前代码直接按主题路径加载文件：
+
+```kotlin
+val themeFontPaths = systemThemeFontPathsFor(fontFamily)
+
+if (themeFontPaths.isNotEmpty()) {
+    val cacheAliases = themeFontPaths.map {
+        "CMP_OHOS_SYSTEM_THEME_FONT:${it.hashCode()}"
+    }
+
+    themeFontPaths.forEachIndexed { index, path ->
+        val typeface =
+            FontMgr.default.makeFromFile(path)
+                ?: return@forEachIndexed
+        // 按 manifest 顺序注册主字体和 fallback
+    }
+}
+```
+
+这里的职责是：
+
+- Core 决定是否允许 `Default` / `SansSerif` 跟随主题。
+- Core 读取路径快照并构造 Typeface 缓存键。
+- Skiko 提供 `FontMgr` 等 Kotlin API。
+- native Skia 执行 `makeFromFile()` 和后续字形布局。
+- Fusion 不注入具体 Typeface，继续使用平台 `FontCollection`。
+
+### 4.4 缓存清理
 
 检测到字体身份变化后：
 
@@ -613,7 +1118,45 @@ compose/ui/ui-text/src/skikoMain/kotlin/androidx/compose/ui/text/platform/SkiaPa
 compose/ui/ui-text/src/skikoMain/kotlin/androidx/compose/ui/text/platform/PlatformFont.skiko.kt
 ```
 
-### 4.4 验证结果
+当前核心清理代码：
+
+```kotlin
+val systemFontIdentityChanged =
+    systemFontIdentityTracker.update(systemFontId)
+
+if (systemFontIdentityChanged) {
+    TextPlatformLayoutCache.clear()
+    TextPlatformFontCache.clearGlobalTypefaceCache()
+    TextPlatformFontCache.clearFontLoadCaches()
+}
+
+if (densityChanged || fontWeightScaleChanged ||
+    localeChanged || systemFontIdentityChanged) {
+    fontFamilyResolver = createFontFamilyResolver()
+}
+
+if (densityChanged || fontWeightScaleChanged ||
+    localeChanged || themeChanged ||
+    systemFontIdentityChanged) {
+    requestSyncRefresh()
+}
+```
+
+这三类清理分别对应：
+
+```text
+TextPlatformLayoutCache.clear()
+  -> SkiaParagraphIntrinsicsCache
+  -> foundation GlobalMultiParagraphCache
+
+TextPlatformFontCache.clearGlobalTypefaceCache()
+  -> 旧 Typeface / FontLoadResult
+
+TextPlatformFontCache.clearFontLoadCaches()
+  -> 各 FontCache 的 typeface load cache
+```
+
+### 4.5 验证结果
 
 ```text
 buildMode=debug
@@ -635,7 +1178,7 @@ exitCode=0
 /Users/jinshuo/Desktop/Workspace/CPF_CMP/artifacts/logs/cmp-theme-font-cross-thread/
 ```
 
-### 4.5 行为边界与限制
+### 4.6 行为边界与限制
 
 跟随系统主题字体：
 
