@@ -69,7 +69,7 @@ flowchart TD
         STYLE0["Text 样式输入<br/>fontFamily = null / Default / SansSerif / 显式 family"] --> D1{"16. [Core/ui-text] target = fontFamily ?: Default<br/>是否为 Default / SansSerif？"}
         D1 -->|"否"| EXPLICIT["[Core/ui-text] 按显式 family 解析<br/>忽略主题字体路径"]
         D1 -->|"是"| D2["17. [Core/ui-text] 展开为 HarmonyOS Sans / Sans-serif"]:::problem
-        PATHDATA["前序主题字体数据<br/>cachedPaths 有值 / 为空"]
+        PATHDATA["阶段三输出：字体路径数据<br/>有值 / 为空"]
         D2 --> D3["18. [Skiko → native Skia] FontCollection 查找 Typeface"]:::problem
         D3 --> D4["19. [Core/ui-text + foundation] 写入文本缓存<br/>key = 文本 + style + density + constraints + resolver<br/>缺少 actualThemeFontPath"]:::problem
         EXPLICIT --> D4
@@ -112,59 +112,57 @@ target = fontFamily ?: FontFamily.Default
 
 ### 4.0 修复后完整流程图
 
-绿色节点表示本修复新增或修改的步骤；普通节点表示原有流程。
+绿色节点表示本修复新增或修改的步骤；其余节点与修复前流程图保持相同阶段和编号。
 
 ```mermaid
 flowchart TD
-    subgraph FIX1["阶段一：ArkTS 解析当前主题字体"]
+    subgraph FIX1["阶段一：系统与 ArkUI"]
         direction LR
-        A["[System/ArkUI] 切换系统主题字体"] --> B["[Core/ui] 请求 fontId"]
-        B --> C["[Core/NAPI] Messenger 调用 ArkTS"]
-        C --> D["[Core/ui-arkui/ArkTS] 读取 context.config.fontId"]
-        D --> E["[ArkTS] 读取当前主题目录、flag、manifest"]:::fixed
-        E --> F["[ArkTS] 得到主字体和 fallback 路径"]:::fixed
-        E -.-> FNOTE["说明：路径解析属于 Core 的 ArkTS 代码"]
+        A1["1. 用户选择系统主题字体"] --> A2["2. [ArkUI] 加载主题字体资源"]
+        A2 --> A3["3. [ArkUI] 原生文字使用新字体"]
     end
 
-    subgraph FIX2["阶段二：路径快照和 Paragraph"]
+    subgraph FIX2["阶段二：ArkTS 字体路径解析"]
         direction LR
-        G["[Core/ui] 主线程读取字体身份"]:::fixed --> H["[Core/NAPI] 调用 __font_getSystemThemeFontPaths"]
-        H --> I["[Core/ui-arkui/ArkTS] 返回 cachedPaths"]:::fixed
-        I --> J["[Core/NAPI] 转成 Kotlin List<String>"]
-        J --> K["[Core/ui] 写入线程安全快照"]:::fixed
-        L["[Core/ui-text + foundation] 主线程或 Worker 创建 Paragraph"] --> M["[Core/ui-text] 读取同一快照"]:::fixed
-        K --> L
-        M -.-> MNOTE["说明：Worker 不再直接调用 NAPI"]
+        B0["4. [Core/ui] Compose 收到配置更新"] --> B1["5. [Core/ui] 请求 fontId"]
+        B1 --> B2["6. [Core/NAPI] Messenger 跨语言请求"]
+        B2 --> B3["7. [Core/ui-arkui/ArkTS] 读取 context.config.fontId"]
+        B3 --> B4["8. [Core/ui-arkui/ArkTS] 读取当前主题目录、flag、manifest"]:::fixed
+        B4 --> B5["9. [Core/ui-arkui/ArkTS] 写入 cachedPaths 和字体身份"]:::fixed
+        B4 -.-> BNOTE["修复点：优先使用 ArkUI 当前激活主题文件；STYLISH 仅作 fallback"]
     end
 
-    subgraph FIX3["阶段三：选择字体解析路径"]
+    subgraph FIX3["阶段三：Paragraph 创建和 NAPI 取路径"]
         direction LR
-        TEXTSTYLE["[Core/ui-text] Text 样式输入<br/>fontFamily = null / Default / SansSerif / 显式 family"] --> N{"[Core/ui-text] target = fontFamily ?: Default<br/>是否为 Default / SansSerif？"}:::fixed
-        N -->|"否"| O["[Core/ui-text] 显式 family 原 resolver<br/>忽略主题字体路径"]
-        N -->|"是"| P{"[Core/ui] 渲染后端"}
-        P -->|"Fusion"| Q["[Skiko/Fusion bridge → OHRender] 平台 FontCollection"]:::fixed
-        P -->|"SkiaRender"| R["[Core → Skiko → native Skia] makeFromFile"]:::fixed
-        O --> S["[Skiko API → native Skia] 生成 SkTextStyle / Paragraph"]
-        Q --> S
-        R --> S
-        S -.-> SNOTE["说明：Core 选择策略，Skiko 提供 API，native Skia 执行字体和字形处理"]
+        C1["10. [Core/ui-text] 主线程或 Lazy Worker 创建 Paragraph"] --> C2{"11. [Core/NAPI] 当前是 owner thread？"}
+        C2 -->|"是"| C3["12. [Core/NAPI] 调用 __font_getSystemThemeFontPaths"]
+        C2 -->|"否"| C4["13. [Core/ui] Worker 不调用 NAPI<br/>改为读取主线程生成的 Kotlin 快照"]:::fixed
+        C3 --> C5["14. [Core/ui-arkui/ArkTS] 返回 cachedPaths 数组"]
+        C5 --> C6["15. [Core/NAPI] 转成 List 并写入线程安全快照"]:::fixed
+        SNAPSHOT["Kotlin 线程安全快照<br/>cachedSystemThemeFontPath"]:::fixed
+        C6 --> SNAPSHOT
+        SNAPSHOT -.->|"Worker 读取；未就绪时为空"| C4
+        C4 -.-> CNOTE["修复点：Worker 不再直接访问 NAPI"]
     end
 
-    subgraph FIX4["阶段四：缓存和刷新"]
+    subgraph FIX4["阶段四：字体解析和缓存"]
         direction LR
-        T["[Core/ui-text + foundation] 写入文本缓存<br/>key 包含主题路径和 resolver 代次"]:::fixed --> U{"[Core/ui] 字体身份变化？"}
-        U -->|"否"| V["[Core] 复用当前缓存"]
-        U -->|"是"| W["[Core/ui + ui-text] 清理布局、Typeface、字体加载缓存"]:::fixed
-        W --> X["[Core/ui-text] 重建 FontFamilyResolver"]:::fixed
-        X --> Y["[Core/ui] 请求同步刷新"]:::fixed
-        W -.-> WNOTE["说明：身份包含 fontId 和实际字体路径"]
+        TEXTSTYLE["[Core/ui-text] Text 样式输入<br/>fontFamily = null / Default / SansSerif / 显式 family"] --> D16{"16. [Core/ui-text] target = fontFamily ?: Default<br/>是否为 Default / SansSerif？"}
+        D16 -->|"否"| EXPLICIT["[Core/ui-text] 显式 family 原 resolver"]
+        EXPLICIT --> D19
+        D16 -->|"是"| D17["17. [Core/ui-text] 保留 Default 语义并使用主题路径<br/>不再固定展开为 HarmonyOS Sans"]:::fixed
+        PATHDATA["快照解码后的字体路径<br/>有值 / 为空"]:::fixed
+        PATHDATA --> D17
+        D17 --> D18["18. [Core/Skiko/native Skia]<br/>Skia 按路径 makeFromFile；Fusion 用平台 FontCollection"]:::fixed
+        D18 --> D19["19. [Core/ui-text + foundation] 写入文本缓存<br/>key 包含主题路径和 resolver 代次"]:::fixed
+        D19 --> D20["20. [Core/ui] 字体身份变化时清理缓存并重建 resolver"]:::fixed
+        D20 --> RESULT["21. [native Skia / OHRender] 所有文本使用一致主题字体"]
     end
 
-    F --> G
-    M -.->|"SkiaRender 读取主题路径快照"| R
-    S --> T
-    V --> Z["[native Skia 或 OHRender] 绘制页面"]
-    Y --> Z
+    A2 --> B0
+    B5 --> C1
+    SNAPSHOT --> PATHDATA
+    C4 --> D16
 
     style FIX1 fill:#fafafa,stroke:#78909c,stroke-width:1px,stroke-dasharray:6 4
     style FIX2 fill:#fafafa,stroke:#78909c,stroke-width:1px,stroke-dasharray:6 4
@@ -172,8 +170,12 @@ flowchart TD
     style FIX4 fill:#fafafa,stroke:#78909c,stroke-width:1px,stroke-dasharray:6 4
     classDef note fill:#f5f5f5,stroke:#9e9e9e,stroke-width:1px,stroke-dasharray:4 3,color:#424242;
     classDef fixed fill:#e8f5e9,stroke:#2e7d32,stroke-width:3px,color:#1b5e20;
-    class FNOTE,MNOTE,SNOTE,WNOTE note;
+    class BNOTE,CNOTE note;
 ```
+
+Worker 不是快照的生产者，而是消费者。主线程通过 NAPI 读取 ArkTS `cachedPaths`，转换成 Kotlin 数据并写入 `cachedSystemThemeFontPath`；Worker 只读取这份 Kotlin 快照。
+
+Worker 可能先于快照完成而开始执行。此时它得到空路径并暂时使用平台默认字体；ArkTS 路径解析完成后会通知 Compose，主线程更新快照、清理缓存、重建 resolver，并请求重新排版。因此流程图表达的是依赖关系和最终收敛，不表示主线程与 Worker 严格串行执行。
 
 以下只分析修复前流程图中的红色故障步骤：8、13、17、18、19、20。
 
