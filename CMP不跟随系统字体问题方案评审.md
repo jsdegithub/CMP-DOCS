@@ -2,7 +2,7 @@
 
 ## 1. 结论
 
-1. ArkTS 通过 `STYLISH` 获取主题字体，结果为空。
+1. ArkTS 通过 `STYLISH` 获取主题字体，而 STYLISH 代表的是 2 in 1 设备风格字体。
 2. Lazy Worker 创建 Paragraph 时直接调用 NAPI，无法读取 ArkTS 缓存的主题字体路径。
 3. Core 把 `FontFamily.Default` 展开为固定的 `HarmonyOS Sans / Sans-serif`。
 4. Typeface、SkTextStyle 和 Paragraph 缓存键没有加入字体路径，导致无法区分不同主题字体。
